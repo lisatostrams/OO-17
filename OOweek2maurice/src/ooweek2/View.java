@@ -22,6 +22,10 @@ public class View {
         raadWoord();
     }
     
+    /**
+     * maakt galg aan op basis van keuzen gebruikers
+     * @return galg 
+     */
     public Galg maakGalg(){
         System.out.println("Kies 1 als u zelf een woord wilt kiezen, of 2 als het programma een woord voor u moet kiezen.");
         Scanner scan1 = new Scanner(System.in);
@@ -46,6 +50,9 @@ public class View {
         return maakGalg();
     }
     
+    /**
+     * laat de gebruiker het woord raden
+     */
     public void raadWoord(){
         galg.pasWoordAan();
         System.out.println(galg.toString());
@@ -59,6 +66,9 @@ public class View {
             System.out.println("Helaas! Het woord was " + galg.getWoord());
     }
     
+    /**
+     * laat de gebruiker een letter raden
+     */
     public void raad(){
         System.out.println("Welke letter wilt u raden?");
         Scanner scan = new Scanner(System.in);
