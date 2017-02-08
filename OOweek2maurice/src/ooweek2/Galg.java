@@ -27,7 +27,9 @@ public class Galg {
         this.fouten = 0;
         this.maximumFouten = 10;
     }
-    
+    /**
+     * bla
+     */
     public Galg (){
         WoordLezer woordlezer = new WoordLezer("woorden.txt");
         this.woord = woordlezer.geefWoord();
