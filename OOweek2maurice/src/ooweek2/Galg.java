@@ -5,7 +5,6 @@
  */
 package ooweek2;
 
-import java.util.Scanner;
 
 /**
  *
@@ -22,13 +21,18 @@ public class Galg {
     private int maximumFouten;
     private boolean geraden = false;
     
+    /**
+     * Deze constructor maakt een object galg aan met een woord dat je mee geeft.
+     * @param s 
+     */
     public Galg (String s){
         this.woord = s;
         this.fouten = 0;
         this.maximumFouten = 10;
     }
+    
     /**
-     * bla
+     * Deze constructor maakt een object galg aan met een woord uit een lijst.
      */
     public Galg (){
         WoordLezer woordlezer = new WoordLezer("woorden.txt");
@@ -37,6 +41,11 @@ public class Galg {
         this.maximumFouten = 10;
     }
     
+    /**
+     * Deze functie returned true als de character let in het woord zit en false als deze er niet in zit.
+     * @param let
+     * @return 
+     */
     public boolean raadLetter(char let){
         if(checkLetterInWoord(let)){
             goedeLetters.append(let);
@@ -50,6 +59,10 @@ public class Galg {
         }
     }
     
+    /**
+     * Deze functie past een woord aan door de geraden letter toe te voegen aan de huidige status van het te raden woord.
+     * @return 
+     */
     public StringBuilder pasWoordAan(){
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < woord.length(); i++){
@@ -66,6 +79,10 @@ public class Galg {
         return woordToestand;
     }
     
+    /**
+     * Deze functie checkt of het woord al is geraden.
+     * @return 
+     */
     public boolean isGeraden(){
         for(int i = 0; i < woord.length(); i++){
             if(woord.charAt(i)!= woordToestand.charAt(i))
@@ -74,6 +91,11 @@ public class Galg {
         return true;
     }
     
+    /**
+     * Deze functie checkt of een bepaalde letter a in het te raden woord zit.
+     * @param a
+     * @return 
+     */
     public boolean checkLetterInWoord(char a){
         for(int i = 0; i < woord.length(); i++){
             if(woord.charAt(i)==a)
