@@ -16,6 +16,7 @@ public class OOweek3Interfaces {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        UI userInteraction = new UI(); 
     }
     
 }

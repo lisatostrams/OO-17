@@ -5,6 +5,7 @@
  */
 package ooweek3interfaces;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -29,7 +30,7 @@ public class UI {
                 case "show":
                     for (int j = 0; j < 10; j++) {
                         if(shapes[j] != null)
-                            System.out.println(shapes[j].toString());
+                            System.out.println(shapes[j].toString() + " " +  shapes[j].getArea());
                     }
                     break;
                 case "circle":
@@ -58,6 +59,7 @@ public class UI {
                     shapes[i] = null; 
                     break;
                 case "sort":
+                    Arrays.sort(shapes); 
                     break;
                 case "quit":
                     System.out.println("Bye!");
