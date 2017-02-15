@@ -22,36 +22,45 @@ public class UI {
     
     private void readInput() {
         String input = "";
-        while(true) {
+        int x,y,r,h,w,i; 
+        while(!input.equalsIgnoreCase("quit")) {
             input = in.next(); 
             switch(input.toLowerCase()) {
                 case "show":
-                    for (int i = 0; i < 10; i++) {
-                        if(shapes[i] != null)
-                            System.out.println(shapes[i].toString());
+                    for (int j = 0; j < 10; j++) {
+                        if(shapes[j] != null)
+                            System.out.println(shapes[j].toString());
                     }
                     break;
                 case "circle":
-                    int x = in.nextInt();
-                    int y = in.nextInt();
-                    int r = in.nextInt(); 
+                    x = in.nextInt();
+                    y = in.nextInt();
+                    r = in.nextInt(); 
                     Circle circle = new Circle(x,y,r); 
-                    for (int i = 0; i < 10; i++) {
-                        if(shapes[i] == null) {
-                            shapes[i] = circle;
-                            break; 
-                        } 
-                    }
+                    if(!addShape(circle)) System.out.println("List full.");
                     break;
                 case "rectangle":
+                    x = in.nextInt();
+                    y = in.nextInt();
+                    w = in.nextInt();
+                    h = in.nextInt(); 
+                    Rectangle rect = new Rectangle(x,y,w,h); 
+                    if(!addShape(rect)) System.out.println("List full.");
                     break;
                 case "move":
+                    i = in.nextInt();
+                    int dx = in.nextInt();
+                    int dy = in.nextInt();
+                    shapes[i].moveObject(dx, dy);
                     break;
                 case "remove":
+                    i = in.nextInt();
+                    shapes[i] = null; 
                     break;
                 case "sort":
                     break;
                 case "quit":
+                    System.out.println("Bye!");
                     return; 
                 default: 
                     System.out.println("did not compute, please enter again.");                           
@@ -61,5 +70,14 @@ public class UI {
         }
     }
     
+    private boolean addShape(geometricObject shape) {
+        for (int i = 0; i < 10; i++) {
+                if(shapes[i] == null) {
+                    shapes[i] = shape;
+                    return true;  
+            } 
+        }
+        return false; 
+    }
     
 }
