@@ -51,6 +51,9 @@ public class Circle implements geometricObject,Comparable<geometricObject>{
 
     @Override
     public int compareTo(geometricObject o) {
+        if (o == null && this == null) return 0;
+        if (o == null) return 1;
+        if (this == null) return -1; 
         if(this.getArea() < o.getArea())
             return -1;
         if(this.getArea() > o.getArea())

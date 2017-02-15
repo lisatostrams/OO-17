@@ -28,7 +28,7 @@ public class UI {
             input = in.next(); 
             switch(input.toLowerCase()) {
                 case "show":
-                    for (int j = 0; j < 10; j++) {
+                    for (int j = 0; j < shapes.length; j++) {
                         if(shapes[j] != null)
                             System.out.println(shapes[j].toString() + " " +  shapes[j].getArea());
                     }

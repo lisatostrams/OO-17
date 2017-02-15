@@ -9,7 +9,7 @@ package ooweek3interfaces;
  *
  * @author mauri
  */
-public interface geometricObject{
+public interface geometricObject {
     double getLeftBorder();
     double getRightBorder();
     double getBottomBorder();
