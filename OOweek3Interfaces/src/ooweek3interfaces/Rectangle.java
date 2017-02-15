@@ -59,6 +59,12 @@ public class Rectangle implements geometricObject,Comparable<geometricObject>{
             return 1;
         return 0;
     }
-
+    
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("This rectangle has got a left lower corner ").append(corner.toString()).append(" a heigth of ").append(height).append(", and a width of ").append(width).append(".");
+        return sb.toString();
+    }
 
 }

@@ -32,4 +32,11 @@ public class Coordinate {
     public void setY(double y){
         this.y = y;
     }
+    
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("with x-coordinate ").append(x).append(" and y-coordinate ").append(y).append(",");
+        return sb.toString();
+    }
 }

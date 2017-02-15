@@ -57,4 +57,11 @@ public class Circle implements geometricObject,Comparable<geometricObject>{
             return 1;
         return 0;
     }
+    
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("This circle has got a center ").append(center.toString()).append(" and a radius of ").append(radius).append(".");
+        return sb.toString();
+    }
 }
