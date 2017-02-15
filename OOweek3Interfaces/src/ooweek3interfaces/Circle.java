@@ -48,5 +48,10 @@ public class Circle implements geometricObject{
         center.setX(dx);
         center.setY(dy);
     }
+
+    @Override
+    public double compareTo(geometricObject obj) {
+        return 0; 
+    }
     
 }

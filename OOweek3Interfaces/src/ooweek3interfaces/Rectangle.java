@@ -51,4 +51,9 @@ public class Rectangle implements geometricObject{
         corner.setY(dy);
     }
 
+    @Override
+    public double compareTo(geometricObject obj) {
+        return 0; 
+    }
+
 }

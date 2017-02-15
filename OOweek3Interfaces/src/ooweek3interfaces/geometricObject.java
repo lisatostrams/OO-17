@@ -16,7 +16,7 @@ public interface geometricObject {
     double getTopBorder();
     double getArea();
     void moveObject(double dx, double dy);
-    //public double compareTo(geometricObject obj);
-    // toString ?? of in eigen klasse?
+    public double compareTo(geometricObject obj);
+    //public toString()?? of in eigen klasse?
     
 }
