@@ -9,7 +9,7 @@ package ooweek3interfaces;
  *
  * @author mauri
  */
-public class Rectangle implements geometricObject{
+public class Rectangle implements geometricObject,Comparable<geometricObject>{
     Coordinate corner;
     double width;
     double height;
@@ -52,8 +52,13 @@ public class Rectangle implements geometricObject{
     }
 
     @Override
-    public double compareTo(geometricObject obj) {
-        return 0; 
+    public int compareTo(geometricObject o) {
+        if(this.getArea() < o.getArea())
+            return -1;
+        if(this.getArea() > o.getArea())
+            return 1;
+        return 0;
     }
+
 
 }

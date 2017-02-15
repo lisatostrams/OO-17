@@ -9,14 +9,12 @@ package ooweek3interfaces;
  *
  * @author mauri
  */
-public interface geometricObject {
+public interface geometricObject{
     double getLeftBorder();
     double getRightBorder();
     double getBottomBorder();
     double getTopBorder();
     double getArea();
     void moveObject(double dx, double dy);
-    public double compareTo(geometricObject obj);
-    //public toString()?? of in eigen klasse?
-    
+    int compareTo(geometricObject o);
 }
