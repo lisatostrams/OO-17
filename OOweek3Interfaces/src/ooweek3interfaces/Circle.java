@@ -9,7 +9,7 @@ package ooweek3interfaces;
  *
  * @author mauri
  */
-public class Circle implements geometricObject,Comparable<geometricObject>{
+public class Circle implements geometricObject{
     Coordinate center;
     double radius;
     
@@ -49,18 +49,7 @@ public class Circle implements geometricObject,Comparable<geometricObject>{
         center.setY(dy);
     }
 
-    @Override
-    public int compareTo(geometricObject o) {
-        if (o == null && this == null) return 0;
-        if (o == null) return 1;
-        if (this == null) return -1; 
-        if(this.getArea() < o.getArea())
-            return -1;
-        if(this.getArea() > o.getArea())
-            return 1;
-        return 0;
-    }
-    
+   
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();

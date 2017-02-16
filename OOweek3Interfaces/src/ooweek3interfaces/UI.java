@@ -15,6 +15,7 @@ import java.util.Scanner;
 public class UI {
     private geometricObject[] shapes;
     Scanner in; 
+    private int size; 
     public UI() {
         this.shapes = new geometricObject[10];
         in = new Scanner(System.in); 
@@ -25,13 +26,12 @@ public class UI {
         String input = "";
         int x,y,r,h,w,i; 
         while(!input.equalsIgnoreCase("quit")) {
+            showShapes(); 
             input = in.next(); 
             switch(input.toLowerCase()) {
                 case "show":
-                    for (int j = 0; j < shapes.length; j++) {
-                        if(shapes[j] != null)
-                            System.out.println(shapes[j].toString() + " " +  shapes[j].getArea());
-                    }
+                        showShapes(); 
+                    
                     break;
                 case "circle":
                     x = in.nextInt();
@@ -39,6 +39,7 @@ public class UI {
                     r = in.nextInt(); 
                     Circle circle = new Circle(x,y,r); 
                     if(!addShape(circle)) System.out.println("List full.");
+                    else size++; 
                     break;
                 case "rectangle":
                     x = in.nextInt();
@@ -47,6 +48,7 @@ public class UI {
                     h = in.nextInt(); 
                     Rectangle rect = new Rectangle(x,y,w,h); 
                     if(!addShape(rect)) System.out.println("List full.");
+                    else size++; 
                     break;
                 case "move":
                     i = in.nextInt();
@@ -57,9 +59,19 @@ public class UI {
                 case "remove":
                     i = in.nextInt();
                     shapes[i] = null; 
+                    for (int p = i; p < shapes.length-1; p++)
+                        shapes[p] = shapes[p+1]; 
+                    shapes[shapes.length-1] = null ;
+                    size--; 
                     break;
                 case "sort":
-                    Arrays.sort(shapes); 
+                    if(in.hasNext()) {
+                       String c = in.next();
+                       if (c.equals("x")) Arrays.sort(shapes, geometricObject.ShapeXcomperator);
+                       else Arrays.sort(shapes, geometricObject.ShapeYcomperator); 
+                    }
+                    else 
+                        Arrays.sort(shapes, 0, size); 
                     break;
                 case "quit":
                     System.out.println("Bye!");
@@ -80,6 +92,13 @@ public class UI {
             } 
         }
         return false; 
+    }
+
+    private void showShapes() {
+        for (int j = 0; j < shapes.length; j++) {
+            if(shapes[j] != null)
+                System.out.println(shapes[j].toString() + " " +  shapes[j].getArea());
+        }
     }
     
 }

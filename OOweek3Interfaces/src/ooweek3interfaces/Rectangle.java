@@ -9,7 +9,7 @@ package ooweek3interfaces;
  *
  * @author mauri
  */
-public class Rectangle implements geometricObject,Comparable<geometricObject>{
+public class Rectangle implements geometricObject{
     Coordinate corner;
     double width;
     double height;
@@ -51,17 +51,7 @@ public class Rectangle implements geometricObject,Comparable<geometricObject>{
         corner.setY(dy);
     }
 
-    @Override
-    public int compareTo(geometricObject o) {
-        if (o == null && this == null) return 0;
-        if (o == null) return 1;
-        if (this == null) return -1; 
-        if(this.getArea() < o.getArea())
-            return -1;
-        if(this.getArea() > o.getArea())
-            return 1;
-        return 0;
-    }
+  
     
     @Override
     public String toString(){
@@ -69,5 +59,7 @@ public class Rectangle implements geometricObject,Comparable<geometricObject>{
         sb.append("This rectangle has got a left lower corner ").append(corner.toString()).append(" a heigth of ").append(height).append(", and a width of ").append(width).append(".");
         return sb.toString();
     }
+
+   
 
 }
