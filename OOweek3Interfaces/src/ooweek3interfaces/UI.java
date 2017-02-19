@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 /**
  *
- * @author Maurice Swanenberg
- * @author Lisa Tostrams
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public class UI {
     private geometricObject[] shapes;
@@ -37,8 +37,8 @@ public class UI {
             input = in.next(); 
             switch(input.toLowerCase()) {
                 case "show":
-                        showShapes(); 
-                    
+                    showShapes(); 
+               
                     break;
                 case "circle":
                     x = in.nextInt();
@@ -72,13 +72,15 @@ public class UI {
                     size--; 
                     break;
                 case "sort":
-                    if(in.hasNext()) {
-                       String c = in.next();
-                       if (c.equals("x")) Arrays.sort(shapes, geometricObject.ShapeXcomperator);
-                       else Arrays.sort(shapes, geometricObject.ShapeYcomperator); 
+                    try {
+                    Arrays.sort(shapes, 0, size); 
+                    String next = in.nextLine(); 
+                    if(next.equals(" x")) Arrays.sort(shapes, geometricObject.ShapeXcomperator);
+                    if(next.equals(" y")) Arrays.sort(shapes, geometricObject.ShapeYcomperator);
                     }
-                    else 
-                        Arrays.sort(shapes, 0, size); 
+                    catch(java.lang.NullPointerException e) {
+                        System.out.println("Nothing to sort."); 
+                    }
                     break;
                 case "quit":
                     System.out.println("Bye!");

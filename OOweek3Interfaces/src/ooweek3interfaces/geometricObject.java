@@ -9,8 +9,8 @@ import java.util.Comparator;
 
 /**
  *
- * @author Maurice Swanenberg
- * @author Lisa Tostrams
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public interface geometricObject extends Comparable {
     double getLeftBorder();
@@ -19,6 +19,12 @@ public interface geometricObject extends Comparable {
     double getTopBorder();
     double getArea();
     void moveObject(double dx, double dy);
+    
+    /** compare functie uit comparable
+     * 
+     * @param o
+     * @return 
+     */
     @Override
     default int compareTo(Object o) {
         if (o == null && this == null) return 0;
@@ -33,7 +39,7 @@ public interface geometricObject extends Comparable {
     }
     
    /**
-    * 
+    * Comparator voor sorteren op linkerborder
     */ 
     public static Comparator<geometricObject> ShapeXcomperator = new Comparator<geometricObject>() {
         @Override
@@ -47,7 +53,7 @@ public interface geometricObject extends Comparable {
     };
     
     /**
-     * 
+     * Comparator voor sorteren op onderborder
      */
     public static Comparator<geometricObject> ShapeYcomperator = new Comparator<geometricObject>() {
         @Override

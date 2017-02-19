@@ -7,8 +7,8 @@ package ooweek3interfaces;
 
 /**
  *
- * @author Maurice Swanenberg
- * @author Lisa Tostrams
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public class Rectangle implements geometricObject{
     Coordinate corner;
