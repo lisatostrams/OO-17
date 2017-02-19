@@ -7,7 +7,8 @@ package ooweek3interfaces;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg
+ * @author Lisa Tostrams
  */
 public class OOweek3Interfaces {
 

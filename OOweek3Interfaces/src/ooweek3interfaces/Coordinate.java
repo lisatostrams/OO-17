@@ -7,11 +7,17 @@ package ooweek3interfaces;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg
+ * @author Lisa Tostrams
  */
 public class Coordinate {
     double x;
     double y;
+    /**
+     * Deze constructor maakt een coorinaat aan met een gegeven x-coordinaat en een gegeven y-coordinaat.
+     * @param x
+     * @param y 
+     */
     public Coordinate(double x, double y){
         this.x = x;
         this.y = y;

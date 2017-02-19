@@ -10,7 +10,8 @@ import java.util.Scanner;
 
 /**
  *
- * @author Lisa Tostrams s4386167
+ * @author Maurice Swanenberg
+ * @author Lisa Tostrams
  */
 public class UI {
     private geometricObject[] shapes;
@@ -22,6 +23,12 @@ public class UI {
         readInput();
     }
     
+    /**
+     * Deze functie laat de gebruiker de keuze om verschillende operaties te doen;
+     * het laten zien van de tot nu toe gemaakte ruimtefiguren, het aanmaken van een nieuwe cirkel, het aanmaken van een nieuwe rechthoek,
+     * het verplaatsen van een ruimtefiguur, het verwijderen van een gegeven ruimtefiguur uit de array, het sorteren van de ruimtefiguren in de array
+     * gebaseerd op het gebied en tenslotte het afsluiten van het programma.
+     */
     private void readInput() {
         String input = "";
         int x,y,r,h,w,i; 
@@ -84,6 +91,11 @@ public class UI {
         }
     }
     
+    /**
+     * Deze functie checkt of een ruimtefiguur nog aan de array kan worden toegevoegd.
+     * @param shape
+     * @return 
+     */
     private boolean addShape(geometricObject shape) {
         for (int i = 0; i < 10; i++) {
                 if(shapes[i] == null) {
@@ -94,6 +106,9 @@ public class UI {
         return false; 
     }
 
+    /**
+     * Deze functie laat zien welke figuren er in de array zitten.
+     */
     private void showShapes() {
         for (int j = 0; j < shapes.length; j++) {
             if(shapes[j] != null)

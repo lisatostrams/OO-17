@@ -9,7 +9,8 @@ import java.util.Comparator;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg
+ * @author Lisa Tostrams
  */
 public interface geometricObject extends Comparable {
     double getLeftBorder();
@@ -31,6 +32,9 @@ public interface geometricObject extends Comparable {
         return 0;
     }
     
+   /**
+    * 
+    */ 
     public static Comparator<geometricObject> ShapeXcomperator = new Comparator<geometricObject>() {
         @Override
         public int compare(geometricObject o1, geometricObject o2) {
@@ -42,6 +46,9 @@ public interface geometricObject extends Comparable {
         }
     };
     
+    /**
+     * 
+     */
     public static Comparator<geometricObject> ShapeYcomperator = new Comparator<geometricObject>() {
         @Override
         public int compare(geometricObject o1, geometricObject o2) {
