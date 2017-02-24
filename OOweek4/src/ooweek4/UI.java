@@ -55,12 +55,15 @@ public class UI {
             }
         if(!verkeerdBeantwoordeVragen2.isEmpty())
             speel2(verkeerdBeantwoordeVragen2);
+        }
     }
-    
+        
+    //Kan beter niet in de GUI, dit is meer een model taak ...
     public Vraag duplicate(Vraag v){
         Random random = new Random();
         int bound = random.nextInt();
         int shift = random.nextInt(bound);
+        return null; 
         
     }
 }
