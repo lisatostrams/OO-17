@@ -5,6 +5,8 @@
  */
 package ooweek4;
 
+import java.util.Random;
+
 /**
  *
  * @author mauri
@@ -39,4 +41,15 @@ public class MeerkeuzeVraag extends Vraag{
         return antwoorden[juisteAntwoord];
     }
     
+    @Override
+    public Vraag duplicate(){
+        Random random = new Random();
+        int shift = random.nextInt(antwoorden.length);
+        String vraag = this.toString();
+        String[] antwoorden2 = new String[antwoorden.length];
+        for(int i = 0; i < antwoorden.length; i++)
+            antwoorden2[i] = antwoorden[(i+shift)%antwoorden.length];
+        MeerkeuzeVraag nieuw = new MeerkeuzeVraag(vraag, antwoorden2, (juisteAntwoord + shift)%antwoorden.length, super.getGewicht());
+        return nieuw;
+    }
 }

@@ -31,7 +31,11 @@ public class TweekeuzeVraag extends MeerkeuzeVraag{
 
     @Override
     public String juisteAntwoord() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return antwoorden[juisteAntwoord];
     }
     
+    @Override
+    public Vraag duplicate(){
+        return this;
+    }
 }

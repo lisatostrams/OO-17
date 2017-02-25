@@ -32,4 +32,5 @@ public class OpenVraag extends Vraag{
     public String juisteAntwoord() {
         return this.antwoord;
     }
+
 }

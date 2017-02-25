@@ -50,7 +50,7 @@ public class UI {
             scan = new Scanner(System.in);
             String antwoord = scan.nextLine();
             if(!v.isCorrect(antwoord)){
-                Vraag x = duplicate(v);
+                Vraag x = v.duplicate();
                 verkeerdBeantwoordeVragen2.add(x);
             }
         if(!verkeerdBeantwoordeVragen2.isEmpty())
@@ -58,12 +58,5 @@ public class UI {
         }
     }
         
-    //Kan beter niet in de GUI, dit is meer een model taak ...
-    public Vraag duplicate(Vraag v){
-        Random random = new Random();
-        int bound = random.nextInt();
-        int shift = random.nextInt(bound);
-        return null; 
-        
-    }
+   
 }

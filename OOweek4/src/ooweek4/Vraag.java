@@ -25,4 +25,10 @@ public abstract class Vraag {
     }
     public abstract boolean isCorrect(String antwoord);
     public abstract String juisteAntwoord();
+    public Vraag duplicate(){
+        return this;
+    }
+    public int getGewicht(){
+        return gewicht;
+    }
 }
