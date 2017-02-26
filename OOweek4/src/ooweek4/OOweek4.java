@@ -7,7 +7,8 @@ package ooweek4;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public class OOweek4 {
 
@@ -16,6 +17,7 @@ public class OOweek4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        UI userinteraction = new UI(); 
     }
     
 }

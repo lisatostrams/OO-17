@@ -7,13 +7,13 @@ package ooweek4;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
+ * Tweekeuzevraag subklasse
  */
 public class TweekeuzeVraag extends MeerkeuzeVraag{
     
-    //private String antwoord1;
-    //private String antwoord2;
-    private String[] antwoorden;
+
     private int juisteAntwoord;
     
     public TweekeuzeVraag(String vraag, String antwoord1, String antwoord2, int juisteantwoord, int gewicht) {
@@ -35,7 +35,8 @@ public class TweekeuzeVraag extends MeerkeuzeVraag{
     }
     
     @Override
-    public Vraag duplicate(){
-        return this;
+    public String toString() {
+        return (this.antwoorden[0] + " of " + this.antwoorden[1] + ": " + this.vraag) ; 
     }
+   
 }

@@ -7,30 +7,22 @@ package ooweek4;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
+ * Open vraag subklasse
  */
 public class OpenVraag extends Vraag{
     
-    private String antwoord;
     
     public OpenVraag(String vraag, String antwoord, int gewicht){
-        super(vraag,gewicht);
-        this.antwoord = antwoord;
+        super(vraag,antwoord,gewicht);
+        
     }
     
     public OpenVraag(String vraag, String antwoord){
-        super(vraag);
-        this.antwoord = antwoord;
+        super(vraag, antwoord);
     }
 
-    @Override
-    public boolean isCorrect(String antwoord) {
-        return this.antwoord.equalsIgnoreCase(antwoord);
-    }
-
-    @Override
-    public String juisteAntwoord() {
-        return this.antwoord;
-    }
+  
 
 }
