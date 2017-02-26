@@ -13,7 +13,7 @@ package ooweek4;
  */
 public class TweekeuzeVraag extends MeerkeuzeVraag{
     
-    private int juisteAntwoord;
+ //   private int juisteAntwoord;
     
     /**
      * Deze constructor maakt een vraag aan, op dezelfde manier als zijn superklasse MeerkeuzeVraag,
@@ -38,6 +38,7 @@ public class TweekeuzeVraag extends MeerkeuzeVraag{
      */
     public TweekeuzeVraag(String vraag, String antwoord1, String antwoord2, int juisteantwoord){
         super(vraag, new String [] {antwoord1, antwoord2} ,juisteantwoord);
+
     }
 
     /**

@@ -45,7 +45,7 @@ public class UI {
             System.out.println(v); 
             input = scan.nextLine();
             if(v.isCorrect(input)) {
-                System.out.println("Correct!");
+                System.out.println("Correct!");                
                 punten += v.gewicht; 
             } else {
                 System.out.println("Nope.");
@@ -91,7 +91,8 @@ public class UI {
             "System.out.println(  \"Hello world  \");", 
             "cout <<  \"Hello world  \";" },  
             1 
-            )); 
+            ));
+            
         vragen.add(new TweekeuzeVraag( 
             "Is er verschil tussen een interface en een abstracte klasse?", 
             "Ja", "Nee", 0,
@@ -133,7 +134,7 @@ public class UI {
             2)); 
         vragen.add(new TweekeuzeVraag( 
             "Is er een maximum aantal constructoren van een klasse in Java?", 
-            "Ja", "Nee", 1 
+            "Ja", "Nee", 1
             )); 
     }  
 }

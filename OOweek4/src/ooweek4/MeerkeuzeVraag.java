@@ -16,7 +16,7 @@ import java.util.Random;
 public class MeerkeuzeVraag extends Vraag{
     
     String [] antwoorden;
-    private int juisteAntwoord;
+    int juisteAntwoord;
     
     /**
      * Deze constructor maakt een nieuwe meerkeuzevraag aan.
