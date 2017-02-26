@@ -20,15 +20,23 @@ public class UI {
     List<Vraag> verkeerdBeantwoordeVragen;
     List<Vraag> vragen; 
     Scanner scan;
+    
+    /**
+     * Dit is de constructor, waar alles in gang wordt gezet.
+     */
     public UI(){
         verkeerdBeantwoordeVragen = new LinkedList<>();
         vragen = new LinkedList<>();
         scan = new Scanner(System.in); 
         addVragen(); 
         speel();
-        
     }
     
+    /**
+     * Deze functie speel, stelt aan de gebruiker een aantal vragen en slaat de verkeerd beantwoorde vragen op in een nieuwe list.
+     * De vragen die goed beantwoord zijn, zijn punten waard en deze punten worden opgeslagen.
+     * Nadat alle vragen 1 keer zijn gesteld, worden de vragen die verkeerd beantwoord zijn nog een keer gesteld.
+     */
     public void speel(){
         String input; 
         int punten = 0; //ronde 1
@@ -47,6 +55,13 @@ public class UI {
         speel2(verkeerdBeantwoordeVragen, punten); 
     }
     
+    /**
+     * Deze functie stelt de vragen die niet goed beantwoord zijn in de eerste ronde nog een keer.
+     * Als de vragen nu wel goed worden beantwoord krijgt de gebruiker er alsnog punten voor.
+     * Nadat alle vragen nog een keer zijn geweest dan wordt er getoond hoeveel punten er zijn behaald in zowel de eerste als tweede ronde.
+     * @param verkeerdBeantwoordeVragen
+     * @param punten 
+     */
     public void speel2(List<Vraag>verkeerdBeantwoordeVragen, int punten){
         int puntenx = 0; //ronde 2
         String input;
@@ -65,7 +80,10 @@ public class UI {
         
     }
     
-       public void addVragen() {
+    /**
+     * Deze functie zet "hard-coded" de vragen in een List van vragen.
+     */
+    public void addVragen() {
         vragen.add(new MeerkeuzeVraag( 
             "Hoe print je   \"Hello world  \" op een regel in Java?", 
             new String []  { 
@@ -110,14 +128,12 @@ public class UI {
             7, 
             1));
         vragen.add(new OpenVraag( 
-            "Hoeveel constructoren je minstens maken bij een klasse in Java?", 
+            "Hoeveel constructoren moet je minstens maken bij een klasse in Java?", 
             "0", 
             2)); 
         vragen.add(new TweekeuzeVraag( 
             "Is er een maximum aantal constructoren van een klasse in Java?", 
             "Ja", "Nee", 1 
             )); 
-        
-    }
-   
+    }  
 }

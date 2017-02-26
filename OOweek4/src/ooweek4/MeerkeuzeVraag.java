@@ -18,17 +18,35 @@ public class MeerkeuzeVraag extends Vraag{
     String [] antwoorden;
     private int juisteAntwoord;
     
+    /**
+     * Deze constructor maakt een nieuwe meerkeuzevraag aan.
+     * @param vraag
+     * @param antwoorden
+     * @param juisteantwoord dit is de index van de array waar het juiste antwoord staat
+     * @param gewicht 
+     */
     public MeerkeuzeVraag(String vraag, String[] antwoorden, int juisteantwoord, int gewicht){
         super(vraag,(""+((char) (97+juisteantwoord))), gewicht);
         this.antwoorden = antwoorden;
         this.juisteAntwoord = juisteantwoord;
     }
     
+    /**
+     * Deze constructor maakt een nieuwe meerkeuzevraag aan met gewicht 3.
+     * @param vraag
+     * @param antwoorden
+     * @param juisteantwoord dit is de index van de array waar het juiste antwoord staat
+     */
     public MeerkeuzeVraag(String vraag, String[] antwoorden, int juisteantwoord){
         super(vraag,(""+((char) (97+juisteantwoord))));
         this.antwoorden = antwoorden;
         this.juisteAntwoord = juisteantwoord;
     }
+    
+    /**
+     * Deze toString methode cast de index van de antwoorden naar de letters a,b,c etc. 
+     * @return 
+     */
     @Override
     public String toString() {
         String options = this.vraag + "\n";
@@ -37,17 +55,20 @@ public class MeerkeuzeVraag extends Vraag{
         }
         return options; 
     }
-  
-
+    
     public String getAntwoord(int i){
         return antwoorden[i];
     }
+    /**
+     * 
+     * @return de String op de index van de array antwoorden, waar het juiste antwoord staat.
+     */
     @Override
     public String juisteAntwoord() {
         return antwoorden[juisteAntwoord];
     }
     
-      /**
+     /**
      * duplicate functie die ook de antwoorden shift
      * @return 
      */

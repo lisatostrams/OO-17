@@ -13,16 +13,22 @@ package ooweek4;
  */
 public class OpenVraag extends Vraag{
     
-    
+    /**
+     * Deze constructor maakt een open vraag aan, met een meegegeven gewicht.
+     * @param vraag
+     * @param antwoord
+     * @param gewicht 
+     */
     public OpenVraag(String vraag, String antwoord, int gewicht){
-        super(vraag,antwoord,gewicht);
-        
+        super(vraag,antwoord,gewicht); 
     }
     
+    /**
+     * Deze constructor maakt een open vraag aan, zonder een meegegeven gewicht.
+     * @param vraag
+     * @param antwoord 
+     */
     public OpenVraag(String vraag, String antwoord){
         super(vraag, antwoord);
     }
-
-  
-
 }
