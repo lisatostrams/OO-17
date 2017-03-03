@@ -5,6 +5,8 @@
  */
 package ooweek5;
 
+import java.util.Map;
+
 /**
  *
  * @author Lisa Tostrams s4386167
@@ -13,6 +15,20 @@ public class Negation extends OneArg{
     private BaseExp expr; 
     public Negation(BaseExp exp) {
         this.expr = exp; 
+    }
+    
+    @Override
+    public double eval(Map<String, Double> map) {
+        return -1*expr.eval(map); 
+    }
+    
+    @Override
+    public BaseExp pe() {
+        if(expr instanceof Constant) {
+            Constant e = (Constant) expr; 
+            return new Constant(-e.getVal()); 
+        }
+        return this; 
     }
     
     @Override

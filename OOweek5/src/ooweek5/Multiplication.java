@@ -5,6 +5,8 @@
  */
 package ooweek5;
 
+import java.util.Map;
+
 /**
  *
  * @author Lisa Tostrams s4386167
@@ -16,6 +18,23 @@ public class Multiplication extends TwoArg{
     public Multiplication(BaseExp e1, BaseExp e2) {
         this.exp1 = e1; 
         this.exp2 = e2; 
+    }
+    
+    @Override
+    public double eval(Map<String, Double> map) {
+        return exp1.eval(map) * exp2.eval(map);
+    }
+    
+    @Override
+    public BaseExp pe() {
+        if(exp1 instanceof Constant && exp2 instanceof Constant) {
+            Constant e1 = (Constant) exp1;
+            Constant e2 = (Constant) exp2; 
+            return new Constant(e1.getVal()* e2.getVal()); 
+        }
+                exp1 = exp1.pe(); 
+        exp2 = exp2.pe(); 
+        return this; 
     }
     
     @Override

@@ -5,10 +5,50 @@
  */
 package ooweek5;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author Lisa Tostrams s4386167
  */
 public class Main {
+    public Main() {
+        testExpression(); 
+    }
     
+    private void testExpression() {
+        Map<String, Double> store = new HashMap<>(); 
+        store.put("x", 2.);
+        store.put("y", 3.);
+        store.put("z", 5.); 
+        BaseExp e1 = add(add(multiply(con(2), con(3)), neg(var("x"))), con(4)); 
+        BaseExp e3 = multiply(con(2), con(3)); 
+        System.out.println(e1); 
+        System.out.println(e1.pe());
+        System.out.println(e1.eval(store)); 
+      
+        BaseExp e2 = neg(var("x")); 
+        System.out.println(e2.eval(store));
+    }
+    
+    public static Add add(BaseExp x, BaseExp y) {
+        return new Add(x, y); 
+    }
+    
+    public static Multiplication multiply(BaseExp x, BaseExp y) {
+        return new Multiplication(x, y); 
+    }
+    
+    public static Negation neg(BaseExp x) {
+        return new Negation(x); 
+    } 
+    
+    public static Constant con(double x) {
+        return new Constant(x); 
+    }
+    
+    public static Variable var(String x) {
+        return new Variable(x); 
+    } 
 }

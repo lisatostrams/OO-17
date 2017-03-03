@@ -5,6 +5,8 @@
  */
 package ooweek5;
 
+import java.util.Map;
+
 /**
  *
  * @author Lisa Tostrams s4386167
@@ -16,7 +18,13 @@ public class Variable extends NoArg {
         this.name = n; 
     }
     
-   public String toString() {
+    @Override
+    public double eval(Map<String, Double> map) {
+        return map.get(name); 
+    }
+    
+    @Override
+    public String toString() {
        return name; 
    }
 }
