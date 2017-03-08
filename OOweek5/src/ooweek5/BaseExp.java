@@ -10,6 +10,7 @@ import java.util.Map;
 /**
  *
  * @author Lisa Tostrams s4386167
+ * @author Maurice Swanenberg s4331095
  */
 public abstract class BaseExp {
     @Override
