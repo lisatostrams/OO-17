@@ -20,6 +20,7 @@ public class SlidingGame implements Configuration {
      */
     private int[][] board;
     private int holeX, holeY;
+    private Direction[] directions = {Direction.NORTH,Direction.EAST,Direction.SOUTH,Direction.WEST};
 
     /**
      * A constructor that initializes the board with the specified array
@@ -38,6 +39,20 @@ public class SlidingGame implements Configuration {
                 holeX = p % N;
                 holeY = p / N;
             }
+        }
+    }
+    
+    private boolean LegalMove(Direction d){
+        switch(d){
+            case NORTH:
+                return d.GetDY()+holeY >=0;
+            case EAST:
+                return d.GetDX()+holeX <=N;
+            case SOUTH:
+                return d.GetDY()+holeY <=N;
+            case WEST:
+                return d.GetDX()+holeX >=0;
+            default: return false;
         }
     }
 
@@ -88,7 +103,20 @@ public class SlidingGame implements Configuration {
 
     @Override
     public Collection<Configuration> successors() {
-        
+        List succ = new LinkedList<SlidingGame>();
+        for(Direction d : directions){
+            if(LegalMove(d)){
+                int[][] newBoard = new int[N][N];
+                for(int i = 0; i < N; i++){
+                    for( int j = 0; j < N; j++){
+                        newBoard[i][j] = board[i][j];
+                    }
+                }
+                newBoard[holeX][holeY] = newBoard[holeX+d.GetDX()][holeY+d.GetDY()];
+                newBoard[holeX+d.GetDX()][holeY+d.GetDY()]= HOLE;
+            }
+        }
+        return succ;
     }
 
     @Override
