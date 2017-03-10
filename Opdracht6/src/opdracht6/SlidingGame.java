@@ -10,6 +10,8 @@ import java.util.*;
  * implementing the Graph interface
  * 
  * Lisa Tostrams s4386167
+ * @author Maurice Swanenberg s4331095
+ * bla
  */
 public class SlidingGame implements Configuration
 {
@@ -18,6 +20,8 @@ public class SlidingGame implements Configuration
      * The board is represented by a 2-dimensional array;
      * the position of the hole is kept in 2 variables holeX and holeY
      */
+    
+    
     private SlidingGame parent; 
     private int [][] board;
     private int holeX, holeY;

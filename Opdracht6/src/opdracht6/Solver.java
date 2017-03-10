@@ -17,7 +17,8 @@ import java.util.Vector;
  * @date 28-02-2013
  * 
  * Lisa Tostrams s4386167
- */
+ * @author Maurice Swanenberg s4331095
+ */ 
 public class Solver
 {
     // A queue for maintaining graphs that are not visited yet.

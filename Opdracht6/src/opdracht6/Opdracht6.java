@@ -7,6 +7,7 @@ import java.util.LinkedList;
  * @author Pieter Koopman, Sjaak Smetsers
  * 
  * Lisa Tostrams s4386167
+ * @author Maurice Swanenberg s4331095
  */
 public class Opdracht6
 {

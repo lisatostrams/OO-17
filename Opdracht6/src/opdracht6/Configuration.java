@@ -12,6 +12,7 @@ import java.util.List;
  * @date 28-02-2015
  * 
  * Lisa Tostrams s4386167
+ * @author Maurice Swanenberg s4331095
  */
 public interface Configuration extends Comparable<Configuration> {
     /*
