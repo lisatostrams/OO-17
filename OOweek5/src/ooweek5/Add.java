@@ -13,8 +13,7 @@ import java.util.Map;
  * @author Maurice Swanenberg s4331095
  */
 
-jsnfbnd
-        
+
 public class Add extends TwoArg{
     private BaseExp exp1;
     private BaseExp exp2; 
