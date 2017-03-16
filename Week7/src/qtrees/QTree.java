@@ -62,12 +62,21 @@ public class QTree {
     }
     
     public static QTNode bitmap2QTree( int x, int y, int width, Bitmap bitmap ) {
-        if(bitmap.allBlack(x, y, width))
-            return new BlackLeaf();
-        if(bitmap.allWhite(x, y, width))
-            return new WhiteLeaf();
+        if(bitmap.allBlack(x, y, width)){
+            System.out.println("black");
+            return new BlackLeaf();}
+        if(bitmap.allWhite(x, y, width)){
+            System.out.println("white");
+            return new WhiteLeaf();}
         else{
-            return new GreyNode(x, y, width, bitmap);
+            GreyNode node = new GreyNode();
+            System.out.println("grey");
+            //node.getChild(0).fillBitmap(x, y, width, bitmap);
+            //node.getChild(1).fillBitmap(x, y, width, bitmap);
+            //node.getChild(2).fillBitmap(x, y, width, bitmap);
+            //node.getChild(3).fillBitmap(x, y, width, bitmap);
+            node.fillBitmap(x, y, width, bitmap);
+            return node;
         }
     }
 
