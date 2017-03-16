@@ -20,7 +20,7 @@ public class BlackLeaf implements QTNode{
     public void fillBitmap(int x, int y, int width, Bitmap bitmap) {
         for(int i = 0; i < width; i++){
             for(int j = 0; j < width; j++){
-                bitmap.setBit(x+i, y+1, false);
+                bitmap.setBit(x+i, y+j, false);
             }
         }
     }

@@ -12,9 +12,9 @@ public class Qtrees {
         StringWriter output = new StringWriter(); 
         qt.writeQTree(output);
         System.out.println(output.toString());
-        //Bitmap bitmap = new Bitmap(8, 8);
-        //qt.fillBitmap( bitmap );
-        //System.out.println(bitmap);
+        Bitmap bitmap = new Bitmap(8, 8);
+        qt.fillBitmap( bitmap );
+        System.out.println(bitmap);
     }
 
 }
