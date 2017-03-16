@@ -15,6 +15,12 @@ public class Qtrees {
         Bitmap bitmap = new Bitmap(8, 8);
         qt.fillBitmap( bitmap );
         System.out.println(bitmap);
+        
+        QTree test =  new QTree(bitmap); 
+        Bitmap bittest = new Bitmap(8,8);
+        test.fillBitmap(bittest); 
+        System.out.println(bittest); 
+        
     }
 
 }
