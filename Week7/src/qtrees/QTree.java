@@ -28,6 +28,7 @@ public class QTree {
     private static QTNode readQTree( Reader input )  {
         int r = 0;
         while( r != -1 ) {
+           
             try { 
                 r = input.read();
             } catch (IOException ex) {
@@ -42,16 +43,17 @@ public class QTree {
                 //....
                 for(int i =0; i < 4; i++)
                     node.setChild(i, readQTree(input));
+                return node; 
             }
-            if(r == -1) break;
+            //if(r == -1) break;
             else {
                 try {
                     r = input.read();
                 } catch (IOException ex) {
                     Logger.getLogger(QTree.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                if(r == 1) return new WhiteLeaf(); 
-                else return new BlackLeaf();
+                if(r == '1') return new WhiteLeaf(); 
+                if(r == '0') return new BlackLeaf();
                     
                 
             }
