@@ -3,11 +3,13 @@ package qtrees;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class QTree {
     QTNode root;
     
-    public QTree( Reader input ) throws IOException {
+    public QTree( Reader input ) {
         root = readQTree( input );
     }
     
@@ -23,10 +25,14 @@ public class QTree {
         root.writeNode( sb );
     }
     
-    private static QTNode readQTree( Reader input ) throws IOException {
+    private static QTNode readQTree( Reader input )  {
         int r = 0;
         while( r != -1 ) {
-            r = input.read(); 
+            try { 
+                r = input.read();
+            } catch (IOException ex) {
+                Logger.getLogger(QTree.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             if(r == '1') {
                 GreyNode node = new GreyNode(); 
@@ -39,7 +45,11 @@ public class QTree {
             }
             if(r == -1) break;
             else {
-                r = input.read();
+                try {
+                    r = input.read();
+                } catch (IOException ex) {
+                    Logger.getLogger(QTree.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 if(r == 1) return new WhiteLeaf(); 
                 else return new BlackLeaf();
                     
