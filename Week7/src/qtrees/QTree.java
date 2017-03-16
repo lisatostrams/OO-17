@@ -32,14 +32,15 @@ public class QTree {
                 GreyNode node = new GreyNode(); 
                 
                 // roep 4 keer recursief readQTree aan
-                
+                // vul de 4 quadranten
                 //....
+                for(int i =0; i < 4; i++)
+                    node.setChild(i, readQTree(input));
             }
             if(r == -1) break;
             else {
                 r = input.read();
-                if(r == 1)
-                    return new WhiteLeaf(); 
+                if(r == 1) return new WhiteLeaf(); 
                 else return new BlackLeaf();
                     
                 
