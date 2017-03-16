@@ -86,5 +86,39 @@ public class Bitmap {
         }
     }
     
+    /**
+     * checks if the given area contains only black bits
+     * @param x
+     * @param y
+     * @param width
+     * @return 
+     */
+    public boolean allBlack(int x, int y, int width){
+        for(int i = 0; i < width; i++){
+            for(int j = 0; j < width; j++){
+                if(raster[x+i][y+j]==true)
+                    return false;
+            }
+        }
+        return true;
+    }
+    
+    /**
+     * checks if the given area contains only white bits
+     * @param x
+     * @param y
+     * @param width
+     * @return 
+     */
+    public boolean allWhite(int x, int y, int width){
+        for(int i = 0; i < width; i++){
+            for(int j = 0; j < width; j++){
+                if(raster[x+i][y+j]==false)
+                    return false;
+            }
+        }
+        return true;
+    }
+    
 
 }

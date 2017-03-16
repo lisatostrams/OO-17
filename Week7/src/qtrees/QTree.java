@@ -62,7 +62,13 @@ public class QTree {
     }
     
     public static QTNode bitmap2QTree( int x, int y, int width, Bitmap bitmap ) {
-        return null;
+        if(bitmap.allBlack(x, y, width))
+            return new BlackLeaf();
+        if(bitmap.allWhite(x, y, width))
+            return new WhiteLeaf();
+        else{
+            return new GreyNode(x, y, width, bitmap);
+        }
     }
 
 }
