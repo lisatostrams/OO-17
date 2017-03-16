@@ -12,10 +12,18 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams
  */
 public class BlackLeaf implements QTNode{
 
+    /**
+     * fills a bitmap with black/false bits
+     * @param x
+     * @param y
+     * @param width
+     * @param bitmap 
+     */
     @Override
     public void fillBitmap(int x, int y, int width, Bitmap bitmap) {
         for(int i = 0; i < width; i++){
@@ -25,6 +33,10 @@ public class BlackLeaf implements QTNode{
         }
     }
 
+    /**
+     * adds 00 to the string, the first 0 for a leaf and the latter 0 because its black
+     * @param out 
+     */
     @Override
     public void writeNode(Writer out) {
         try {

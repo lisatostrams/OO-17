@@ -6,25 +6,51 @@ import java.io.Writer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * 
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams
+ */
 public class QTree {
     QTNode root;
     
+    /**
+     * creates a quadtree based on a string
+     * @param input 
+     */
     public QTree( Reader input ) {
         root = readQTree( input );
     }
     
+    /**
+     * creates a quadtree based on a bitmap
+     * @param bitmap 
+     */
     public QTree( Bitmap bitmap ) {
         root = bitmap2QTree( 0, 0,  bitmap.getWidth(), bitmap );
     }
 
+    /**
+     * fills a bitmap
+     * @param bitmap 
+     */
     public void fillBitmap ( Bitmap bitmap ) {
         root.fillBitmap(0, 0, bitmap.getWidth(), bitmap);
     }
 
+    /**
+     * adds a string to a string
+     * @param sb 
+     */
     public void writeQTree( Writer sb ) {
         root.writeNode( sb );
     }
     
+    /**
+     * interprets the meaning of the values in the string to the nodes of a quadtree
+     * @param input
+     * @return 
+     */
     private static QTNode readQTree( Reader input )  {
         int r = 0;
         while( r != -1 ) {
@@ -61,23 +87,25 @@ public class QTree {
         return null;
     }
     
+    /**
+     * converts the bitmap to a quadtree
+     * @param x
+     * @param y
+     * @param width
+     * @param bitmap
+     * @return 
+     */
     public static QTNode bitmap2QTree( int x, int y, int width, Bitmap bitmap ) {
-        if(bitmap.allBlack(x, y, width)){
-            System.out.println("black");
-            return new BlackLeaf();}
-        if(bitmap.allWhite(x, y, width)){
-            System.out.println("white");
-            return new WhiteLeaf();}
+        if(bitmap.allBlack(x, y, width))
+            return new BlackLeaf();
+        if(bitmap.allWhite(x, y, width))
+            return new WhiteLeaf();
         else{
             GreyNode node = new GreyNode();
-            System.out.println("grey");
-            //node.getChild(0).fillBitmap(x, y, width, bitmap);
-            //node.getChild(1).fillBitmap(x, y, width, bitmap);
-            //node.getChild(2).fillBitmap(x, y, width, bitmap);
-            //node.getChild(3).fillBitmap(x, y, width, bitmap);
-            //node.fillBitmap(x, y, width, bitmap);
-            node.
-            System.out.println("grey2");
+            node.setChild(0, bitmap2QTree(x, y, width/2, bitmap));
+            node.setChild(1, bitmap2QTree(x+width/2, y, width/2, bitmap));
+            node.setChild(2, bitmap2QTree(x+width/2, y+width/2, width/2, bitmap));
+            node.setChild(3, bitmap2QTree(x, y+width/2, width/2, bitmap));
             return node;
         }
     }

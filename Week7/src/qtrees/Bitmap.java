@@ -3,6 +3,8 @@ package qtrees;
 /**
  * Bitmap: A class for representing bitmap;
  * @author Sjaak Smetsers
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams
  * @version 15-03-2016
  */
 public class Bitmap {

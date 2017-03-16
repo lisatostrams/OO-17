@@ -12,10 +12,18 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams
  */
 public class WhiteLeaf implements QTNode{
 
+    /**
+     * fills a bitmap with white/true bits
+     * @param x
+     * @param y
+     * @param width
+     * @param bitmap 
+     */
     @Override
     public void fillBitmap(int x, int y, int width, Bitmap bitmap) {
         for(int i = 0; i < width; i++){
@@ -25,6 +33,10 @@ public class WhiteLeaf implements QTNode{
         }
     }
 
+    /**
+     * adds 01 to the string, 0 for a leaf and 1 because its white
+     * @param out 
+     */
     @Override
     public void writeNode(Writer out) {
         try {

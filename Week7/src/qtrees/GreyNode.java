@@ -12,24 +12,27 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams
  */
 public class GreyNode implements QTNode{
     
     private QTNode[] children;
     
+    /**
+     * constructor of GreyNode, which initializes the array
+     */
     public GreyNode(){
         children = new QTNode[4];
     }
-    
-    public GreyNode(int x, int y, int width, Bitmap bitmap){
-        children = new QTNode[4];
-        //children[0].fillBitmap(x, y, width/2, bitmap);
-        //children[1].fillBitmap(x+width/2, y, width/2, bitmap);
-        //children[2].fillBitmap(x+width/2, y+width/2, width/2, bitmap);
-        //children[3].fillBitmap(x, y+width/2, width/2, bitmap);
-    }
 
+    /**
+     * fills a bitmap for each of the quadrants/children.
+     * @param x
+     * @param y
+     * @param width
+     * @param bitmap 
+     */
     @Override
     public void fillBitmap(int x, int y, int width, Bitmap bitmap) {
         children[0].fillBitmap(x, y, width/2, bitmap);
@@ -38,14 +41,19 @@ public class GreyNode implements QTNode{
         children[3].fillBitmap(x, y+width/2, width/2, bitmap);
     }
 
+    /**
+     * sets a child to a given child
+     * @param child
+     * @param child_node 
+     */
     public void setChild(int child, QTNode child_node) {
         children[child] = child_node; 
     }
-    
-    public QTNode getChild(int i){
-        return children[i];
-    }
-    
+   
+    /**
+     * adds 1 to the string
+     * @param out 
+     */
     @Override
     public void writeNode(Writer out) {
         try {
