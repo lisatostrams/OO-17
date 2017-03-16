@@ -75,7 +75,9 @@ public class QTree {
             //node.getChild(1).fillBitmap(x, y, width, bitmap);
             //node.getChild(2).fillBitmap(x, y, width, bitmap);
             //node.getChild(3).fillBitmap(x, y, width, bitmap);
-            node.fillBitmap(x, y, width, bitmap);
+            //node.fillBitmap(x, y, width, bitmap);
+            node.
+            System.out.println("grey2");
             return node;
         }
     }
