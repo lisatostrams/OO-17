@@ -5,7 +5,10 @@
  */
 package qtrees;
 
+import java.io.IOException;
 import java.io.Writer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,7 +27,11 @@ public class WhiteLeaf implements QTNode{
 
     @Override
     public void writeNode(Writer out) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            out.write("01");
+        } catch (IOException ex) {
+            Logger.getLogger(WhiteLeaf.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

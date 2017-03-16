@@ -5,7 +5,10 @@
  */
 package qtrees;
 
+import java.io.IOException;
 import java.io.Writer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,7 +27,11 @@ public class BlackLeaf implements QTNode{
 
     @Override
     public void writeNode(Writer out) {
-        out.write("00");
+        try {
+            out.write("00");
+        } catch (IOException ex) {
+            Logger.getLogger(BlackLeaf.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

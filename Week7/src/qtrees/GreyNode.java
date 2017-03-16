@@ -5,22 +5,38 @@
  */
 package qtrees;
 
+import java.io.IOException;
 import java.io.Writer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author mauri
  */
 public class GreyNode implements QTNode{
+    
+    private QTNode[] children;
+    
+    public GreyNode(){
+        children = new QTNode[4];
+    }
 
     @Override
     public void fillBitmap(int x, int y, int width, Bitmap bitmap) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        children[0].fillBitmap(x, y, width/2, bitmap);
+        children[1].fillBitmap(x+width/2, y, width/2, bitmap);
+        children[2].fillBitmap(x+width/2, y+width/2, width/2, bitmap);
+        children[3].fillBitmap(x, y+width/2, width/2, bitmap);
     }
 
     @Override
     public void writeNode(Writer out) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            out.write("0");
+        } catch (IOException ex) {
+            Logger.getLogger(GreyNode.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
