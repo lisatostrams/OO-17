@@ -38,10 +38,16 @@ public class GreyNode implements QTNode{
         children[3].fillBitmap(x, y+width/2, width/2, bitmap);
     }
 
+    public void setChild(int child, QTNode child_node) {
+        children[child] = child_node; 
+    }
+    
     @Override
     public void writeNode(Writer out) {
         try {
-            out.write("0");
+            out.write("1");
+            for(int i = 0; i < 4; i++) 
+                children[i].writeNode(out);
         } catch (IOException ex) {
             Logger.getLogger(GreyNode.class.getName()).log(Level.SEVERE, null, ex);
         }
