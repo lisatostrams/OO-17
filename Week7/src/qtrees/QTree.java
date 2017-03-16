@@ -1,12 +1,13 @@
 package qtrees;
 
+import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 
 public class QTree {
     QTNode root;
     
-    public QTree( Reader input ) {
+    public QTree( Reader input ) throws IOException {
         root = readQTree( input );
     }
     
@@ -22,7 +23,28 @@ public class QTree {
         root.writeNode( sb );
     }
     
-    private static QTNode readQTree( Reader input ) {
+    private static QTNode readQTree( Reader input ) throws IOException {
+        int r = 0;
+        while( r != -1 ) {
+            r = input.read(); 
+            
+            if(r == '1') {
+                GreyNode node = new GreyNode(); 
+                
+                // roep 4 keer recursief readQTree aan
+                
+                //....
+            }
+            if(r == -1) break;
+            else {
+                r = input.read();
+                if(r == 1)
+                    return new WhiteLeaf(); 
+                else return new BlackLeaf();
+                    
+                
+            }
+        }
         return null;
     }
     
