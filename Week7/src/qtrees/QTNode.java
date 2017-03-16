@@ -13,4 +13,6 @@ import java.io.Writer;
 public interface QTNode {
     public void fillBitmap( int x, int y, int width, Bitmap bitmap );
     public void writeNode( Writer out );
+    
+    
 }
