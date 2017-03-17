@@ -9,7 +9,7 @@ import java.io.Writer;
  *
  * @author Sjaak Smetsers
  * @author Maurice Swanenberg s4331095
- * @author Lisa Tostrams
+ * @author Lisa Tostrams s4386167
  * @version 11-03-2016
  */
 public interface QTNode {

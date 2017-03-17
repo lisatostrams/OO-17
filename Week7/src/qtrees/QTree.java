@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 /**
  * 
  * @author Maurice Swanenberg s4331095
- * @author Lisa Tostrams
+ * @author Lisa Tostrams s4386167
  */
 public class QTree {
     QTNode root;
@@ -71,7 +71,6 @@ public class QTree {
                     node.setChild(i, readQTree(input));
                 return node; 
             }
-            //if(r == -1) break;
             else {
                 try {
                     r = input.read();

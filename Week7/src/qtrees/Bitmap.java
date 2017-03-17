@@ -4,7 +4,7 @@ package qtrees;
  * Bitmap: A class for representing bitmap;
  * @author Sjaak Smetsers
  * @author Maurice Swanenberg s4331095
- * @author Lisa Tostrams
+ * @author Lisa Tostrams s4386167
  * @version 15-03-2016
  */
 public class Bitmap {
