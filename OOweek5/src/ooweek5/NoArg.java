@@ -12,4 +12,12 @@ package ooweek5;
  */
 public abstract class NoArg extends BaseExp{
     
+    /**
+     * const and vars cannot be further optimalised
+     * @return 
+     */
+    @Override
+    public BaseExp pe() {
+        return this; 
+    }
 }

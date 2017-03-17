@@ -11,22 +11,27 @@ import java.util.Map;
  *
  * @author Lisa Tostrams s4386167
  * @author Maurice Swanenberg s4331095
+ * Negation class
  */
 public class Negation extends OneArg{
-    private BaseExp expr; 
+ 
     public Negation(BaseExp exp) {
-        this.expr = exp; 
+        super(exp);  
     }
     
     @Override
     public double eval(Map<String, Double> map) {
-        return -1*expr.eval(map); 
+        return -1*getExp().eval(map); 
     }
     
+    /**
+     * neg(const) = -const
+     * @return 
+     */
     @Override
     public BaseExp pe() {
-        if(expr instanceof Constant) {
-            Constant e = (Constant) expr; 
+        if(getExp() instanceof Constant) {
+            Constant e = (Constant) getExp(); 
             return new Constant(-e.getVal()); 
         }
         return this; 
@@ -34,6 +39,6 @@ public class Negation extends OneArg{
     
     @Override
     public String toString() {
-        return "!" + expr.toString(); 
+        return "-" + getExp().toString(); 
     }
 }

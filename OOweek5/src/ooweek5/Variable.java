@@ -11,6 +11,7 @@ import java.util.Map;
  *
  * @author Lisa Tostrams s4386167
  * @author Maurice Swanenberg s4331095
+ * Variable class
  */
 public class Variable extends NoArg {
     private String name; 
@@ -28,4 +29,6 @@ public class Variable extends NoArg {
     public String toString() {
        return name; 
    }
+
+    
 }

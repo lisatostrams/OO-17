@@ -9,7 +9,19 @@ package ooweek5;
  *
  * @author Lisa Tostrams s4386167
  * @author Maurice Swanenberg s4331095
+ * abstract class for expressions with one arg
  */
 public abstract class OneArg extends BaseExp {
-    
+        private BaseExp expr;
+        /**
+         * constructor
+         * @param exp 
+         */
+        public OneArg(BaseExp exp) {
+            this.expr = exp; 
+        }
+        
+        public BaseExp getExp() {
+            return expr; 
+        }
 }

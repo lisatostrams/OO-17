@@ -11,10 +11,15 @@ import java.util.Map;
  *
  * @author Lisa Tostrams s4386167
  * @author Maurice Swanenberg s4331095
+ * Class to keep constants
  */
 public class Constant extends NoArg {
     private double value; 
     
+    /**
+     * constructor 
+     * @param val = value
+     */
     public Constant(double val) {
         this.value = val; 
     }
@@ -32,4 +37,5 @@ public class Constant extends NoArg {
     public String toString() {
         return String.valueOf(value); 
     }
+
 }

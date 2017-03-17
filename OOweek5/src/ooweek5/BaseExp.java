@@ -11,16 +11,11 @@ import java.util.Map;
  *
  * @author Lisa Tostrams s4386167
  * @author Maurice Swanenberg s4331095
+ * Abstract class for expressions
  */
 public abstract class BaseExp {
     @Override
-    public String toString() {
-        return ""; 
-    } 
-    public double eval(Map<String, Double> map) {
-        return -1; 
-    }
-    public BaseExp pe() {
-        return this; 
-    }
+    public abstract String toString();  
+    public abstract double eval(Map<String, Double> map); 
+    public abstract BaseExp pe(); 
 }
