@@ -61,6 +61,8 @@ public class Polynomial {
      */
     @Override
     public String toString() {
+        if(terms.size()==0)
+            return "0";
         StringBuilder sb = new StringBuilder();
         for(Term t : terms){
             if(t.getCoef()!=0){
@@ -73,8 +75,11 @@ public class Polynomial {
                     sb.append("x^").append(t.getExp()).append(" + ");
             }
         }
-        sb.deleteCharAt(sb.length()-1);
-        sb.deleteCharAt(sb.length()-1);
+        if(sb.length()>2){
+            sb.deleteCharAt(sb.length()-1);
+            sb.deleteCharAt(sb.length()-1);
+            sb.deleteCharAt(sb.length()-1);
+        }
         return sb.toString();
     }
     
@@ -107,7 +112,18 @@ public class Polynomial {
 
     @Override
     public boolean equals(Object other_poly) {
-        return false;
+        if(other_poly == null || other_poly.getClass() != getClass())
+            return false;
+        Polynomial p = (Polynomial) other_poly;
+        if(p.terms.size()== 0 && this.terms.size()==0)
+            return true;
+        if(p.terms.size() != terms.size())
+            return false;
+        for(int i = 0; i < terms.size(); i++){
+            if(!p.terms.get(i).equals(terms.get(i)))
+                return false;
+        }
+        return true;
     }
 
 }
