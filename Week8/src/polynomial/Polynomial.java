@@ -63,25 +63,25 @@ public class Polynomial {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for(Term t : terms){
-            sb.append(t.getCoef());
-            if(t.getExp()==0)
-                sb.append(" + ");
-            else if(t.getExp()==1)
-                sb.append("x + ");
-            else
-                sb.append("x^").append(t.getExp()).append(" + ");
+            if(t.getCoef()!=0){
+                sb.append(t.getCoef());
+                if(t.getExp()==0)
+                    sb.append(" + ");
+                else if(t.getExp()==1)
+                    sb.append("x + ");
+                else
+                    sb.append("x^").append(t.getExp()).append(" + ");
+            }
         }
         sb.deleteCharAt(sb.length()-1);
         sb.deleteCharAt(sb.length()-1);
         return sb.toString();
     }
-
+    
     public void plus(Polynomial b) {
-        List<Term> terms2 = b.terms;
-        //List<Term> terms3 = new LinkedList<>();
+        Polynomial p = new Polynomial(b);
+        List<Term> terms2 = p.terms;
         for(Term t : terms){
-            //boolean eq = false;
-            // checken of de exp van terms in b voorkomt
             for(Term t2 : terms2){
                 if(t.getExp()==t2.getExp()){
                     t.plus(t2);
@@ -92,11 +92,6 @@ public class Polynomial {
         for(Term t2 : terms2){
             terms.add(t2);
         }
-        
-            // zoja coeff optellen en aan terms 2 toevoegen
-            // zonee aan terms 2 toevoegen
-            // rangschik de terms op oplopende exponenten
-            
     }
 
 
