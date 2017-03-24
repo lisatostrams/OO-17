@@ -70,7 +70,7 @@ public class PolynomialTest {
         Polynomial c = new Polynomial("-4 1 -3 2");
         c.plus(a);
         System.out.println(c.toString());
-        assertEquals(c,new Polynomial()); // een polynoom bij zijn eigen inverse opgeteld moet de lege polynoom opleveren
+        assertEquals(c, new Polynomial()); // een polynoom bij zijn eigen inverse opgeteld moet de lege polynoom opleveren
         
     }
 
@@ -80,11 +80,11 @@ public class PolynomialTest {
     @Test
     public void testMinus() {
         System.out.println("minus");
-        Polynomial b = null;
+        Polynomial a = new Polynomial("4 1 3 2");
+        Polynomial b = new Polynomial("4 1 3 2");
         Polynomial instance = new Polynomial();
-        instance.minus(b);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        a.minus(b);
+        assertEquals(a,instance); // een polynoom min zichzelf doen moet een lege polynoom opleveren
     }
 
     /**

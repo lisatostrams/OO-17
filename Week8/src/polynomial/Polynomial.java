@@ -61,7 +61,11 @@ public class Polynomial {
      */
     @Override
     public String toString() {
-        if(terms.size()==0)
+        boolean empty = true;
+        for(Term t : terms)
+            if(t.getCoef()!=0)
+                empty = false;
+        if(empty)
             return "0";
         StringBuilder sb = new StringBuilder();
         for(Term t : terms){
@@ -83,6 +87,28 @@ public class Polynomial {
         return sb.toString();
     }
     
+    public void addSameTerms(){
+        List<Term> terms2 = new LinkedList<>();
+        //terms2 = terms;
+        for(Term t : terms){
+            boolean in = false;
+            for(Term t2 : terms2){
+                Term t3 = new Term(0,0);
+                if(t2.getExp()==t.getExp()){
+                    t3.plus(t);
+                    t3.plus(t2);
+                    in = true;
+                    terms2.remove(t2);
+                }
+                if(in)
+                    terms2.add(t3);
+                else
+                    terms2.add(t);
+            }
+        }
+        terms = terms2;
+    }
+    
     public void plus(Polynomial b) {
         Polynomial p = new Polynomial(b);
         List<Term> terms2 = p.terms;
@@ -97,14 +123,36 @@ public class Polynomial {
         for(Term t2 : terms2){
             terms.add(t2);
         }
+        for(Term t : terms)
+            if(t.getCoef()==0)
+                terms.remove(t);
+        addSameTerms();
     }
 
 
     public void minus(Polynomial b) {
+        Polynomial p = new Polynomial(b);
+        List<Term> terms2 = p.terms;
+        Term min = new Term(-1,0);
+        for(Term t : terms2)
+            t.times(min);
+        plus(p);
     }
 
 
     public void times(Polynomial b) {
+        Polynomial p = new Polynomial(b);
+        Polynomial nieuw = new Polynomial();
+        List<Term>terms2 = p.terms;
+        List<Term>terms3 = nieuw.terms;
+        for(Term t : terms){
+            for(Term t2 : terms2){
+                Term term = new Term(t);
+                term.times(t2);
+                terms3.add(term);
+            }
+        }
+        terms = terms3;
     }
 
     public void divide(Polynomial b) {
