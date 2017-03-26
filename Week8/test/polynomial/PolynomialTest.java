@@ -11,67 +11,46 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import polynomial.Polynomial;
 
 /**
- *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
+ * Test klasse voor polynomial
  */
 public class PolynomialTest {
     
-    public PolynomialTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of toString method, of class Polynomial.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Polynomial instance = new Polynomial();
-        String expResult = "0";
-        String result = instance.toString();
-        assertEquals(expResult, result); // 2 lege polynomen met elkaar vergelijken
-        Polynomial a = new Polynomial("1 0 2 2");
-        String expResult2 = "1.0 + 2.0x^2";
-        String result2 = a.toString();
-        assertEquals(expResult2,result2); // het geval dat een exponent 0 is
-        Polynomial p1 = new Polynomial("0 2 3 4");
-        String expResultp1 = "3.0x^4";
-        String resultp1 = p1.toString();
-        assertEquals(expResultp1,resultp1); // het geval dat een coefficient 0 is
-    }
 
     /**
      * Test of plus method, of class Polynomial.
+     * 
      */
     @Test
     public void testPlus() {
         System.out.println("plus");
-        Polynomial a = new Polynomial("4 1 3 2");
+        Polynomial a = new Polynomial("3 1 3 4");
         Polynomial b = new Polynomial();
-        b.plus(a);
-        assertEquals(b,a); // een polynoom bij een lege polynoom optellen
-        Polynomial c = new Polynomial("-4 1 -3 2");
-        c.plus(a);
-        System.out.println(c.toString());
-        assertEquals(c, new Polynomial()); // een polynoom bij zijn eigen inverse opgeteld moet de lege polynoom opleveren
-        
+        b.plus(a); 
+        assertEquals(b, a);  //0 + a = a
+        Polynomial p1 = new Polynomial( "3.0 1 2 3" );
+        Polynomial p1m = new Polynomial("-3 1 -2 3");
+        Polynomial p2 = new Polynomial(p1);
+        Polynomial p2m = new Polynomial(p1m);
+        p1m.plus(p1);
+        assertEquals(p1m, new Polynomial()); //p1 + (-p1) = 0
+        p2.plus(p2m);
+        assertEquals(p2,p1m); // test commutativiteit
+        b = new Polynomial("2 1");
+        Polynomial c = new Polynomial("1 2 3 4");
+        Polynomial a1 = new Polynomial(a);
+        Polynomial b1 = new Polynomial(b);
+        Polynomial c1 = new Polynomial(c);
+        a.times(b);
+        a.times(c);
+        b1.times(c1);
+        a1.times(b1);
+        assertEquals(a, a1); //test associativiteit
+       
     }
 
     /**
@@ -80,11 +59,16 @@ public class PolynomialTest {
     @Test
     public void testMinus() {
         System.out.println("minus");
-        Polynomial a = new Polynomial("4 1 3 2");
-        Polynomial b = new Polynomial("4 1 3 2");
-        Polynomial instance = new Polynomial();
-        a.minus(b);
-        assertEquals(a,instance); // een polynoom min zichzelf doen moet een lege polynoom opleveren
+        Polynomial p1 = new Polynomial( "3.0 1 2 3" );
+        Polynomial p2 = new Polynomial (p1);
+        p1.minus(p2);
+        assertEquals(p1, new Polynomial()); //p1 - p1 = 0
+        p1 = new Polynomial(p2); 
+        Polynomial n_one = new Polynomial("-1 0");
+        p1.times(n_one);
+        p2.plus(p1);
+        assertEquals(p2, new Polynomial()); // p1 + ((-1)*p1) = p1 - p1 
+       
     }
 
     /**
@@ -93,11 +77,35 @@ public class PolynomialTest {
     @Test
     public void testTimes() {
         System.out.println("times");
-        Polynomial b = null;
-        Polynomial instance = new Polynomial();
-        instance.times(b);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Polynomial p1 = new Polynomial( "3.0 1 2 3" );
+        Polynomial p2 = new Polynomial (p1);
+        Polynomial p3 = new Polynomial( "4 0 5 3" );
+        Polynomial p4 = new Polynomial( "12 1 8 3 15 4 10 6" );
+        Polynomial p5 = new Polynomial(p1);
+        Polynomial p6 = new Polynomial(p3); 
+        Polynomial one = new Polynomial("1 0");
+        Polynomial zero = new Polynomial(); 
+        p1.times(one);
+        assertEquals(p1, p2); //p1 * 1 = p1
+        p1.times(zero);
+        assertEquals(p1, zero); //p1 * 0 = 0
+        p2.times(p3);
+        assertEquals(p2, p4); //test distributie
+        p6.times(p5);
+        assertEquals(p2, p6); //test commutativiteit
+        
+        Polynomial a = new Polynomial("3 1 3 4");
+        Polynomial b = new Polynomial("2 1");
+        Polynomial c = new Polynomial("1 2 3 4");
+        Polynomial a1 = new Polynomial(a);
+        Polynomial b1 = new Polynomial(b);
+        Polynomial c1 = new Polynomial(c);
+        a.times(b);
+        a.times(c);
+        b1.times(c1);
+        a1.times(b1);
+        assertEquals(a, a1); //test associativiteit
+        
     }
 
     /**
@@ -106,24 +114,13 @@ public class PolynomialTest {
     @Test
     public void testDivide() {
         System.out.println("divide");
-        Polynomial b = null;
-        Polynomial instance = new Polynomial();
-        instance.divide(b);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Polynomial p1 = new Polynomial( "3.0 1 2 3" );
+        Polynomial p2 = new Polynomial (p1);
+        p1.divide(p2);
+        assertEquals(p1, new Polynomial("1 0")); //p1 / p1 = 1
     }
 
-    /**
-     * Test of equals method, of class Polynomial.
-     */
-    @Test
-    public void testEquals() {
-        System.out.println("equals");
-        Object other_poly = new Polynomial("1 2 3 4");
-        Polynomial instance = new Polynomial("1 2 3 4");
-        boolean expResult = true;
-        boolean result = instance.equals(other_poly);
-        assertEquals(expResult, result);
-    }
+   
+ 
     
 }

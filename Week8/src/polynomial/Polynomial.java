@@ -1,14 +1,17 @@
 package polynomial;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 /**
  * A skeleton class for representing Polynomials
  *
  * @author Sjaak Smetsers
- * @date 19-04-2016
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
+ * @date 10-03-2015
  */
 public class Polynomial {
 
@@ -22,7 +25,7 @@ public class Polynomial {
      * empty list of terms and not as a single term with 0 as a coefficient
      */
     public Polynomial() {
-        terms = new LinkedList<>();
+        terms = new ArrayList<>();
     }
 
     /**
@@ -32,8 +35,8 @@ public class Polynomial {
      * scanner and passed to scanTerm for reading each individual term
      */
     public Polynomial( String s ) {
-        terms = new LinkedList<>();
-        Scanner scan = new Scanner( s );
+        terms = new ArrayList<>();
+        Scanner scan = new Scanner(s);
 
         for (Term t = Term.scanTerm(scan); t != null; t = Term.scanTerm(scan)) {
             terms.add(t);
@@ -47,7 +50,7 @@ public class Polynomial {
      *
      */
     public Polynomial( Polynomial p ) {
-        terms = new LinkedList<>();
+        terms = new ArrayList<>(p.terms.size());
         for (Term t : p.terms) {
             terms.add(new Term(t));
         }
@@ -61,117 +64,165 @@ public class Polynomial {
      */
     @Override
     public String toString() {
-        boolean empty = true;
-        for(Term t : terms)
-            if(t.getCoef()!=0)
-                empty = false;
-        if(empty)
-            return "0";
-        StringBuilder sb = new StringBuilder();
-        for(Term t : terms){
-            if(t.getCoef()!=0){
-                sb.append(t.getCoef());
-                if(t.getExp()==0)
-                    sb.append(" + ");
-                else if(t.getExp()==1)
-                    sb.append("x + ");
-                else
-                    sb.append("x^").append(t.getExp()).append(" + ");
-            }
+        if(terms.size() == 0) return "0";
+        String str = "";
+        for(int i = 0; i < terms.size(); i++) {
+            if(terms.get(i).getCoef() > 0 && i != 0) str +=  " + "  + terms.get(i); 
+            else if(terms.get(i).getCoef() < 0 ) str += " " + terms.get(i);
+            else str += terms.get(i); 
         }
-        if(sb.length()>2){
-            sb.deleteCharAt(sb.length()-1);
-            sb.deleteCharAt(sb.length()-1);
-            sb.deleteCharAt(sb.length()-1);
-        }
-        return sb.toString();
+        
+        return str;
     }
-    
-    public void addSameTerms(){
-        List<Term> terms2 = new LinkedList<>();
-        //terms2 = terms;
-        for(Term t : terms){
-            boolean in = false;
-            for(Term t2 : terms2){
-                Term t3 = new Term(0,0);
-                if(t2.getExp()==t.getExp()){
-                    t3.plus(t);
-                    t3.plus(t2);
-                    in = true;
-                    terms2.remove(t2);
-                }
-                if(in)
-                    terms2.add(t3);
-                else
-                    terms2.add(t);
-            }
-        }
-        terms = terms2;
-    }
-    
+
+    /**
+     * add poly b to this
+     * @param b 
+     */
     public void plus(Polynomial b) {
-        Polynomial p = new Polynomial(b);
-        List<Term> terms2 = p.terms;
-        for(Term t : terms){
-            for(Term t2 : terms2){
-                if(t.getExp()==t2.getExp()){
-                    t.plus(t2);
-                    terms2.remove(t2);
+        boolean match = false; 
+        ListIterator<Term> lita = terms.listIterator(),
+                           litb = b.terms.listIterator(); 
+        for (Term t : b.terms) {
+            for (Term s : terms) {
+                if(s.getExp() == t.getExp()) { //match exponents
+                    s.plus(t); //add terms
+                    match = true; 
                 }
             }
+            if(!match) { //if no match found, add term
+                insertTerm(t); 
+            }
+            match = false; 
         }
-        for(Term t2 : terms2){
-            terms.add(t2);
-        }
-        for(Term t : terms)
-            if(t.getCoef()==0)
-                terms.remove(t);
-        addSameTerms();
+        removeZero(); // remove terms with coeff 0
     }
 
-
-    public void minus(Polynomial b) {
-        Polynomial p = new Polynomial(b);
-        List<Term> terms2 = p.terms;
-        Term min = new Term(-1,0);
-        for(Term t : terms2)
-            t.times(min);
-        plus(p);
-    }
-
-
-    public void times(Polynomial b) {
-        Polynomial p = new Polynomial(b);
-        Polynomial nieuw = new Polynomial();
-        List<Term>terms2 = p.terms;
-        List<Term>terms3 = nieuw.terms;
-        for(Term t : terms){
-            for(Term t2 : terms2){
-                Term term = new Term(t);
-                term.times(t2);
-                terms3.add(term);
+    /**
+     * insert term t at right place in poly
+     * @param t 
+     */
+    private void insertTerm(Term t) {
+        for(Term s: terms) {
+            if(t.getExp() < s.getExp()) {
+                terms.add(terms.indexOf(s), t);
+                return; 
             }
         }
-        terms = terms3;
+        terms.add(t); 
+        
+    }
+    
+    /**
+     * substract poly b from this
+     * @param b 
+     */
+    public void minus(Polynomial b) {
+        Polynomial min = new Polynomial("-1 0");
+        b.times(min);
+        this.plus(b);
     }
 
+    /**
+     * multiply this with poly b
+     * @param b 
+     */
+    public void times(Polynomial b) { 
+        ListIterator<Term> lita = terms.listIterator(),
+                           litb = b.terms.listIterator(); 
+        Polynomial result = new Polynomial();
+        Polynomial copy = new Polynomial(this);
+        for(Term t:  b.terms) {
+            for(Term s : terms) { // multiply each term from b with each term from this
+                s.times(t); 
+            }
+            result.plus(this);
+            terms = copy.terms; 
+        }
+        terms = result.terms;
+    }
+
+    /**
+     * divide using long division method steps from: https://www.mathsisfun.com/algebra/polynomials-division-long.html
+     * @param b 
+     */
     public void divide(Polynomial b) {
+        Polynomial result = new Polynomial(); 
+        Polynomial denom = new Polynomial(b);
+        
+        for(Term t : b.terms) {
+            for(int i = 0; i < terms.size() && !terms.isEmpty() ; i++) {  //could not use iterator here because list is altered during loop
+                Term term = new Term(t.getCoef()/terms.get(i).getCoef(), t.getExp() - terms.get(i).getExp()); //step 1: divide
+                result.insertTerm(term);
+     
+                Polynomial temp = new Polynomial();
+                temp.insertTerm(term);
+                b.times(temp);  //step 2: multiply result from division with denominator
+                this.minus(b); //step 3: substract from poly
+                b.terms = denom.terms; 
+    
+            }
+        }
+        terms = result.terms;
+        
     }
 
+    /**
+     * 
+     * @param other_poly
+     * @return true if other poly is equal to this 
+     */
     @Override
     public boolean equals(Object other_poly) {
-        if(other_poly == null || other_poly.getClass() != getClass())
+        if( other_poly == null || !(other_poly instanceof Polynomial)) {
             return false;
-        Polynomial p = (Polynomial) other_poly;
-        if(p.terms.size()== 0 && this.terms.size()==0)
-            return true;
-        if(p.terms.size() != terms.size())
-            return false;
-        for(int i = 0; i < terms.size(); i++){
-            if(!p.terms.get(i).equals(terms.get(i)))
+        }
+        else {
+            Polynomial p2 = (Polynomial) other_poly; 
+            if(p2.terms.size() != terms.size()) {
                 return false;
+            } 
+            for(int i = 0; i < terms.size(); i++) {
+                if(!terms.get(i).equals(p2.terms.get(i))) {
+                    return false;
+                } 
+            }
         }
         return true;
+    }
+    
+    /**
+     * remove terms with coeff 0
+     */
+    private void removeZero() {
+        for(int i = 0; i < terms.size() ; i++) {
+            if(terms.get(i).getCoef() == 0) {
+                terms.remove(i);
+                removeZero(); 
+            } 
+        }
+    }
+    
+    /**
+     * apply int x to polynomial
+     * @param x
+     * @return result
+     */
+    public double apply(int x) {
+        double result = 0;
+        int term; 
+        for(Term s: terms) {
+            if(s.getExp() > 0) {
+                term = x; 
+                for(int i = 1; i < s.getExp(); i++) {
+                    term = term *x;
+                }
+            }
+            else term = 1; 
+            result += (term*s.getCoef());
+
+        }
+        return result; 
     }
 
 }
