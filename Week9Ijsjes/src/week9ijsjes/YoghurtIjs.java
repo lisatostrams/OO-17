@@ -13,7 +13,7 @@ public class YoghurtIjs extends Ijsje{
 
     public YoghurtIjs(){
         beschrijving = "YoghurtIjs";
-        prijs();
+        //prijs();
     }
     
     @Override

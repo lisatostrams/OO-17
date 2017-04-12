@@ -13,11 +13,16 @@ public class VanilleIjs extends Ijsje{
 
     public VanilleIjs(){
         beschrijving = "VanilleIjs";
-        prijs();
+        //prijs();
     }
     
     @Override
     int prijs() {
         return 150;
+    }
+    
+    @Override
+    public String geefBeschrijving(){
+        return beschrijving;
     }
 }
