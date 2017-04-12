@@ -7,12 +7,13 @@ package week9ijsjes;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public abstract class Ijsje {
     protected String beschrijving =  "onbekend ijsje";
-    abstract int prijs();
-    protected String geefBeschrijving(){
+    public abstract int prijs();
+    public String geefBeschrijving(){
         return beschrijving;
     }
 }

@@ -7,7 +7,8 @@ package week9ijsjes;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public class Chocodip extends Topping{
 
@@ -16,8 +17,8 @@ public class Chocodip extends Topping{
     }
 
     @Override
-    public String toString() {
-        return ijsje.toString() + ", chocodip";
+    public String geefBeschrijving() {
+        return ijsje.geefBeschrijving() + ", chocodip";
     }
     
     @Override

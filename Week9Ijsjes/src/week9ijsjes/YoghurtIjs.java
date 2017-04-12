@@ -7,17 +7,17 @@ package week9ijsjes;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public class YoghurtIjs extends Ijsje{
 
     public YoghurtIjs(){
         beschrijving = "YoghurtIjs";
-        //prijs();
     }
     
     @Override
-    int prijs() {
+    public int prijs() {
         return 200;
     }
 }

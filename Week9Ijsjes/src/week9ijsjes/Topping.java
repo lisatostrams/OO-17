@@ -7,7 +7,8 @@ package week9ijsjes;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public abstract class Topping extends Ijsje{
 
@@ -18,10 +19,11 @@ public abstract class Topping extends Ijsje{
     }
     
     @Override
-    int prijs() {
+    public int prijs() {
         return ijsje.prijs();
     }
     
-    public abstract String toString();
+    @Override
+    public abstract String geefBeschrijving();
     
 }

@@ -10,7 +10,8 @@ import java.util.List;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public class Week9Ijsjes {
 
@@ -20,6 +21,12 @@ public class Week9Ijsjes {
     public static void main(String[] args) {
         List<Ijsje> ijsjes = new LinkedList<>();
         ijsjes.add(new Slagroom(new YoghurtIjs()));
+        Ijsje i = new YoghurtIjs();
+        Ijsje ii = new Slagroom(new YoghurtIjs());
+        Ijsje iii = new VanilleIjs();
+        ijsjes.add(i);
+        ijsjes.add(ii);
+        ijsjes.add(iii);
         ijsjes.add(new Chocodip(new Spikkels(new VanilleIjs())));
         for(Ijsje ijs : ijsjes){
             System.out.println(ijs.geefBeschrijving() + " $" + ijs.prijs());

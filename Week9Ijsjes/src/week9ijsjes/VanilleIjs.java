@@ -7,22 +7,17 @@ package week9ijsjes;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public class VanilleIjs extends Ijsje{
 
     public VanilleIjs(){
         beschrijving = "VanilleIjs";
-        //prijs();
     }
     
     @Override
-    int prijs() {
+    public int prijs() {
         return 150;
-    }
-    
-    @Override
-    public String geefBeschrijving(){
-        return beschrijving;
     }
 }

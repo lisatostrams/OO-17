@@ -7,7 +7,8 @@ package week9ijsjes;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public class Spikkels extends Topping{
 
@@ -16,8 +17,8 @@ public class Spikkels extends Topping{
     }
 
     @Override
-    public String toString() {
-        return ijsje.toString() + ", spikkels";
+    public String geefBeschrijving() {
+        return ijsje.geefBeschrijving() + ", spikkels";
     }
     
     @Override
