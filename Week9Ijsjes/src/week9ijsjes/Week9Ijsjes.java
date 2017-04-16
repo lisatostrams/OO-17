@@ -28,6 +28,8 @@ public class Week9Ijsjes {
         ijsjes.add(ii);
         ijsjes.add(iii);
         ijsjes.add(new Chocodip(new Spikkels(new VanilleIjs())));
+        ijsjes.add(new Slagroom(new Spikkels( new YoghurtIjs())));
+        ijsjes.add(new Chocodip(new Chocodip(new Chocodip(new Chocodip (new Chocodip(new VanilleIjs()))))));
         for(Ijsje ijs : ijsjes){
             System.out.println(ijs.geefBeschrijving() + " $" + ijs.prijs());
         }
