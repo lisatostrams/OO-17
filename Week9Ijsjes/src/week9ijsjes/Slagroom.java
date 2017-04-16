@@ -12,15 +12,27 @@ package week9ijsjes;
  */
 public class Slagroom extends Topping{
 
+    /**
+     * Dit is de constructor van slagroom waar een ijsje aan mee wordt gegeven.
+     * @param ijsje 
+     */
     public Slagroom(Ijsje ijsje) {
         super(ijsje);
     }
 
+    /**
+     * Deze functie returned de oude beschrijving van het ijsje met slagroom er aan toegevoegd.
+     * @return 
+     */
     @Override
     public String geefBeschrijving() {
         return ijsje.geefBeschrijving() + ", slagroom";
     }
     
+    /**
+     * Deze functie returned de oude prijs van het ijsje plus de 50 cent voor de slagroom.
+     * @return 
+     */
     @Override
     public int prijs(){
         return super.prijs() + 50;

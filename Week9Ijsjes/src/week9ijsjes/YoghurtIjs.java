@@ -12,10 +12,17 @@ package week9ijsjes;
  */
 public class YoghurtIjs extends Ijsje{
 
+    /**
+     * De constructor van YoghurtIjs die de beschrijving van onbekend ijsje in YoghurtIjs verandert.
+     */
     public YoghurtIjs(){
         beschrijving = "YoghurtIjs";
     }
     
+    /**
+     * Deze functie returned de prijs van een standaard yoghurt ijsje.
+     * @return 
+     */
     @Override
     public int prijs() {
         return 200;

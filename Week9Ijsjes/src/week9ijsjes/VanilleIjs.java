@@ -12,10 +12,17 @@ package week9ijsjes;
  */
 public class VanilleIjs extends Ijsje{
 
+    /**
+     * De constructor van VanilleIjs die de beschrijving van onbekend ijsje in VanilleIjs verandert.
+     */
     public VanilleIjs(){
         beschrijving = "VanilleIjs";
     }
     
+    /**
+     * Deze functie returned de prijs van een standaard vanille ijsje.
+     * @return 
+     */
     @Override
     public int prijs() {
         return 150;
