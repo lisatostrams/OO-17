@@ -9,11 +9,11 @@ package ooweek10;
  *
  * @author Lisa Tostrams s4386167
  */
-public class FalseForm<T> implements Form{
+public class FalseForm<R> implements Form{
 
     @Override
-    public T accept(FormVisitor visitor) {
-        return (T) visitor.visit(this);
+    public R accept(FormVisitor visitor) {
+        return (R) visitor.visit(this);
     }
     
     @Override

@@ -8,13 +8,13 @@ package ooweek10;
 /**
  *
  * @author Lisa Tostrams s4386167
- * @param <T>
+ * @param <R>
  */
-public interface FormVisitor<T> {
-    T visit(BinOpForm form); 
-    T visit(NotForm form);
-    T visit(Form form); 
-    T visit(TrueForm form);
-    T visit(FalseForm form);
-    T visit(StringForm form);
+public interface FormVisitor<R> {
+    R visit(BinOpForm form); 
+    R visit(NotForm form);
+    R visit(Form form); 
+    R visit(TrueForm form);
+    R visit(FalseForm form);
+    R visit(StringForm form);
 }

@@ -10,7 +10,7 @@ package ooweek10;
  * @author Lisa Tostrams s4386167
  * Binary operators AND, OR, and IMPLICATION
  */
-public class BinOpForm <T> implements Form {
+public class BinOpForm <R> implements Form {
     private BinOp op;
     private Form leftOperand;
     private Form rightOperand;
@@ -54,8 +54,8 @@ public class BinOpForm <T> implements Form {
    
     
     @Override
-    public T accept(FormVisitor v) {
-        return (T) v.visit(this); 
+    public R accept(FormVisitor v) {
+        return (R) v.visit(this); 
     
     }
     

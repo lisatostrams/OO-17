@@ -9,6 +9,6 @@ package ooweek10;
  *
  * @author Lisa Tostrams s4386167
  */
-public interface Form <T>{
-    <T> T accept(FormVisitor<T> visitor); 
+public interface Form <R>{
+    <R> R accept(FormVisitor<R> visitor); 
 }
