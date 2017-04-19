@@ -9,6 +9,6 @@ package ooweek10;
  *
  * @author Lisa Tostrams s4386167
  */
-public interface Form extends Visitable {
-    
+public interface Form{
+    void accept(FormVisitor visitor);
 }

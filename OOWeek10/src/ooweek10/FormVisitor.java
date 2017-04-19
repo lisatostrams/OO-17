@@ -10,5 +10,5 @@ package ooweek10;
  * @author Lisa Tostrams s4386167
  */
 public interface FormVisitor {
-    
+    void visit( Form form );
 }
