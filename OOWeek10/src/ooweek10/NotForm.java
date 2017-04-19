@@ -13,6 +13,8 @@ public class NotForm<T> implements Form{
     private Form operand;
     
     /**
+     * 
+     * 
      * negate operand op
      * @param op 
      */
