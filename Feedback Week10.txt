@@ -1,0 +1,9 @@
+Date Submitted: Sunday, 17 April 2016 23:34:24 o'clock CEST
+Current Grade: V
+Feedback:
+* De accept in de forms had een vorm kunnen hebben van public <R> R accept(FormVisitor<R> v),
+dan was de type cast niet nodig geweest.
+* Bij de visit(BinOpForm) in de EvalFormVisitor had je de apply functie van de enumeratie
+kunnen gebruiken. 
+* Ik mis een sequentie diagram.
+* Verder ok.
