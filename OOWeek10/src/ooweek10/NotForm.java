@@ -9,6 +9,34 @@ package ooweek10;
  *
  * @author Lisa Tostrams s4386167
  */
-public class NotForm implements Form {
+public class NotForm<T> implements Form{
+    private Form operand;
     
+    /**
+     * negate operand op
+     * @param op 
+     */
+    public NotForm(Form op) {
+        this.operand = op;
+    }
+    
+    public Form get(){
+        return operand;
+    }
+  
+    
+    /**
+     *
+     * @param v
+     * @return 
+     */
+    @Override
+    public T accept(FormVisitor v) {
+        return (T) v.visit(this);
+    }
+       
+    @Override
+    public String toString() {
+        return " ~" + operand; 
+    }
 }

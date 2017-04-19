@@ -15,7 +15,22 @@ public class OOWeek10 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Form f1 = new BinOpForm(BinOp.AndOp, new StringForm("a"), new StringForm("b"));
+        Form f2 = new BinOpForm(BinOp.ImpliesOp, new NotForm(new StringForm("a")), new BinOpForm(BinOp.OrOp, new StringForm("b"), new StringForm("c"))); 
+        Form f3 = new BinOpForm(BinOp.AndOp, new TrueForm(), new FalseForm()); 
+        PrintFormVisitor printer = new PrintFormVisitor(); 
+        f1.accept(printer);
+        System.out.println(printer);
+        printer = new PrintFormVisitor(); 
+        f2.accept(printer);
+        System.out.println(printer);
+        printer = new PrintFormVisitor();
+        f3.accept(printer);
+        System.out.println(printer);
+        
+        
+
+        
     }
     
 }

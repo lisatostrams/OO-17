@@ -8,7 +8,19 @@ package ooweek10;
 /**
  *
  * @author Lisa Tostrams s4386167
+ * @param <T>
  */
-public class TrueForm implements Form{
+public class TrueForm<T> implements Form{
+
+    @Override
+    public T accept(FormVisitor visitor) {
+        return (T) visitor.visit(this);
+    }
+    
+    @Override
+    public String toString() {
+        return "true"; 
+    }
+    
     
 }
