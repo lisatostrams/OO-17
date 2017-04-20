@@ -13,7 +13,7 @@ package ooweek10;
 public class TrueForm<R> implements Form{
 
     @Override
-    public R accept(FormVisitor visitor) {
+    public R accept(FormVisitor visitor) { // void maken !!!
         return (R) visitor.visit(this);
     }
     

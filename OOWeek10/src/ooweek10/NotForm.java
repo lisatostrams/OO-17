@@ -33,7 +33,7 @@ public class NotForm<R> implements Form{
      * @return 
      */
     @Override
-    public R accept(FormVisitor v) {
+    public R accept(FormVisitor v) { // void maken !!!
         return (R) v.visit(this);
     }
        

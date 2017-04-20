@@ -54,7 +54,7 @@ public class BinOpForm <R> implements Form {
    
     
     @Override
-    public R accept(FormVisitor v) {
+    public R accept(FormVisitor v) { // void maken !!!
         return (R) v.visit(this); 
     
     }

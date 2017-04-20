@@ -10,5 +10,5 @@ package ooweek10;
  * @author Lisa Tostrams s4386167
  */
 public interface Form <R>{
-    <R> R accept(FormVisitor<R> visitor); 
+    <R> R accept(FormVisitor<R> visitor);  // void maken !!!
 }
