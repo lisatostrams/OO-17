@@ -9,7 +9,7 @@ package ooweek10;
  *
  * @author Lisa Tostrams s4386167
  */
-public class NotForm<T> implements Form{
+public class NotForm<R> implements Form{
     private Form operand;
     
     /**
@@ -33,8 +33,8 @@ public class NotForm<T> implements Form{
      * @return 
      */
     @Override
-    public T accept(FormVisitor v) {
-        return (T) v.visit(this);
+    public R accept(FormVisitor v) {
+        return (R) v.visit(this);
     }
        
     @Override

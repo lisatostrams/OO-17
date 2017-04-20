@@ -9,7 +9,7 @@ package ooweek10;
  *
  * @author Lisa Tostrams s4386167
  */
-public class StringForm<T> implements Form {
+public class StringForm<R> implements Form {
     private String atom;
     
     /**
@@ -21,8 +21,8 @@ public class StringForm<T> implements Form {
     }
 
     @Override
-    public T accept(FormVisitor visitor) {
-        return (T) visitor.visit(this);
+    public R accept(FormVisitor visitor) {
+        return (R) visitor.visit(this);
     }
     
     @Override
