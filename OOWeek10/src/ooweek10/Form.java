@@ -6,9 +6,9 @@
 package ooweek10;
 
 /**
- *
+ * @author Maurice Swanenberg s4331095
  * @author Lisa Tostrams s4386167
  */
 public interface Form <R>{
-    <R> R accept(FormVisitor<R> visitor);  // void maken !!!
+    <R> R accept(FormVisitor<R> visitor); 
 }

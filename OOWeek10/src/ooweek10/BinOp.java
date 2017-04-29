@@ -5,23 +5,28 @@
  */
 package ooweek10;
 
+import java.util.function.BinaryOperator;
+
 /**
- *
+ * @author Maurice Swanenberg s4331095
  * @author Lisa Tostrams s4386167
  */
-public enum BinOp {
+public enum BinOp implements BinaryOperator<Boolean>{
     AndOp(" /\\ ") {
-        public boolean apply(boolean a1, boolean a2) {
+        @Override
+        public Boolean apply(Boolean a1, Boolean a2) {
             return a1 && a2; 
         }
     },
     OrOp(" \\/ ") {
-        public boolean apply(boolean a1, boolean a2) {
+        @Override
+        public Boolean apply(Boolean a1, Boolean a2) {
             return a1 || a2;
         }
     },
     ImpliesOp(" => ") {
-        public boolean apply(boolean a1, boolean a2) {
+        @Override
+        public Boolean apply(Boolean a1, Boolean a2) {
             return !a1 || a2;
         }
     };

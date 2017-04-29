@@ -6,7 +6,7 @@
 package ooweek10;
 
 /**
- *
+ * @author Maurice Swanenberg s4331095
  * @author Lisa Tostrams s4386167
  */
 public class PrintFormVisitor implements FormVisitor<String> {
@@ -14,7 +14,7 @@ public class PrintFormVisitor implements FormVisitor<String> {
     
     
     @Override
-    public String visit(BinOpForm form) {
+    public String visit(BinOpForm form) { //gaat nog niet helemaal goed met diepere formules: a -> (b \/ c) 
         StringBuilder st = new StringBuilder(); 
         st.append(form.getLeft()); 
         st.append(form.getOp()); 

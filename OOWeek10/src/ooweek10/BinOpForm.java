@@ -6,7 +6,7 @@
 package ooweek10;
 
 /**
- *
+ * @author Maurice Swanenberg s4331095
  * @author Lisa Tostrams s4386167
  * Binary operators AND, OR, and IMPLICATION
  */
@@ -54,7 +54,7 @@ public class BinOpForm <R> implements Form {
    
     
     @Override
-    public R accept(FormVisitor v) { // void maken !!!
+    public R accept(FormVisitor v) { 
         return (R) v.visit(this); 
     
     }

@@ -6,7 +6,7 @@
 package ooweek10;
 
 /**
- *
+ * @author Maurice Swanenberg s4331095
  * @author Lisa Tostrams s4386167
  */
 public class FalseForm<R> implements Form{

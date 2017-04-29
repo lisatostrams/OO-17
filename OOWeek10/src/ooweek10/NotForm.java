@@ -6,7 +6,7 @@
 package ooweek10;
 
 /**
- *
+ * @author Maurice Swanenberg s4331095
  * @author Lisa Tostrams s4386167
  */
 public class NotForm<R> implements Form{
@@ -33,7 +33,7 @@ public class NotForm<R> implements Form{
      * @return 
      */
     @Override
-    public R accept(FormVisitor v) { // void maken !!!
+    public R accept(FormVisitor v) { 
         return (R) v.visit(this);
     }
        

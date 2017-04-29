@@ -6,14 +6,14 @@
 package ooweek10;
 
 /**
- *
+ * @author Maurice Swanenberg s4331095
  * @author Lisa Tostrams s4386167
  * @param <R>
  */
 public class TrueForm<R> implements Form{
 
     @Override
-    public R accept(FormVisitor visitor) { // void maken !!!
+    public R accept(FormVisitor visitor) { 
         return (R) visitor.visit(this);
     }
     
