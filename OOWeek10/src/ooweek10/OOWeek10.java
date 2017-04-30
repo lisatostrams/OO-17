@@ -5,6 +5,8 @@
  */
 package ooweek10;
 
+import java.util.Map;
+
 /**
  * @author Maurice Swanenberg s4331095
  * @author Lisa Tostrams s4386167
@@ -28,7 +30,7 @@ public class OOWeek10 {
         f3.accept(printer);
         System.out.println(printer);
         
-        
+   
 
         
     }
