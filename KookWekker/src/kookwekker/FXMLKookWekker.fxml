@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane fx:controller="kookwekker.KookWekkerController" 
+    xmlns:fx="http://javafx.com/fxml" alignment="top_left" hgap="10" vgap="10">
+<padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
+ <TextField 
+        GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+ 
+ <VBox spacing="10" alignment="center_right" 
+        GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <Button text="Start"     
+        onAction="#handleStartButtonAction"/>
+</VBox>
+
+<HBox spacing="10" alignment="center_left" 
+        GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <Button text="Stop"     
+        onAction="#handleStopButtonAction"/>
+</HBox>
+
+ <VBox spacing="10" alignment="center_right" 
+        GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <Button text="Quit"     
+        onAction="#handleQuitButtonAction"/>
+</VBox>
+<Text fx:id="actiontarget"
+       GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+</GridPane>
+
