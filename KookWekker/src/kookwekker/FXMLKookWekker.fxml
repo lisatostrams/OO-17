@@ -35,5 +35,6 @@
 </VBox>
 <Text fx:id="actiontarget"
        GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+<Text fx:id="timer" GridPane.columnIndex="0" GridPane.rowIndex="12"/>  
 </GridPane>
 

@@ -23,14 +23,18 @@ import javafx.scene.text.Text;
 public class KookWekkerController {
     
     @FXML private Text actiontarget;
+    @FXML private Text timer; 
     private int SECONDS = 10; 
+    Timeline timeLine;
     
     @FXML protected void handleStartButtonAction(ActionEvent event) {
         actiontarget.setText("Start button pressed");
-        SECONDS = 10; 
-        Timeline timeLine;
+        SECONDS = 10;
+        
+        
         timeLine = new Timeline(new KeyFrame(Duration.seconds(1), ae -> tickHandler(ae)));
         timeLine.setCycleCount(Timeline.INDEFINITE);
+        timeLine.stop();
         timeLine.play(); 
     }    
     
@@ -43,7 +47,7 @@ public class KookWekkerController {
     }
 
     private KeyFrame tickHandler(ActionEvent ae) {
-        actiontarget.setText("" + SECONDS--);
+        timer.setText("" + SECONDS--);
         return null;
     }
 }
