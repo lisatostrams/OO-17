@@ -10,8 +10,10 @@
 <?import javafx.scene.text.*?>
 
 <GridPane fx:controller="kookwekker.KookWekkerController" 
+    fx:id="gridPane"
     xmlns:fx="http://javafx.com/fxml" alignment="top_left" hgap="10" vgap="10">
 <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
 
  <TextField 
     fx:id="textfield"
@@ -19,8 +21,8 @@
  
  <ProgressBar 
      fx:id="bar"
-     GridPane.columnIndex="0" GridPane.rowIndex="0"
- />  
+     prefHeight="51.0" prefWidth="326.0" progress="1.0"
+     GridPane.columnIndex="0" GridPane.rowIndex="0" />  
  
  <VBox spacing="10" alignment="center_right" 
         GridPane.columnIndex="1" GridPane.rowIndex="1">

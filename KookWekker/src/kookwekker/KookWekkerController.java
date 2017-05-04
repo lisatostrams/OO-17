@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
 /**
@@ -28,12 +29,14 @@ public class KookWekkerController {
     @FXML private Text timer; 
     @FXML private ProgressBar bar; 
     @FXML private TextField textfield; 
-    private int SECONDS = 10; 
-    private double progress = 10; 
+    @FXML private GridPane gridPane; 
+    private int SECONDS = 0; 
+    private double progress = 0.0; 
     Timeline timeLine;
     private ProgressBar pb; 
     
     @FXML protected void handleStartButtonAction(ActionEvent event) {
+        if(progress <= 0) {
         String s = textfield.getText(); 
         try { 
             progress = Double.parseDouble(s);
@@ -45,18 +48,19 @@ public class KookWekkerController {
         bar.setProgress(1);
         timeLine = new Timeline(new KeyFrame(Duration.seconds(1), ae -> tickHandler(ae)));
         timeLine.setCycleCount(Timeline.INDEFINITE);
-        timeLine.stop();
         timeLine.play(); 
-        actiontarget.setText("Start button pressed");
+        }
+        else {
+            timeLine.play(); 
+        }
     }    
     
     @FXML protected void handleStopButtonAction(ActionEvent event) {
         timeLine.stop(); 
-        actiontarget.setText("Stop button pressed");
     }
     
     @FXML protected void handleQuitButtonAction(ActionEvent event) {
-        actiontarget.setText("Quit button pressed");
+        System.exit(0);
     }
 
     private KeyFrame tickHandler(ActionEvent ae) {
@@ -65,7 +69,7 @@ public class KookWekkerController {
         if(progress < 0) {
             timeLine.stop();
             bar.setProgress(1);
-            
+            gridPane.setStyle("-fx-background-color: #ff0000");
         } 
         
         return null;
