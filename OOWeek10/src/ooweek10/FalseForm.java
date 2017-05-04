@@ -12,7 +12,7 @@ package ooweek10;
 public class FalseForm<R> implements Form{
 
     @Override
-    public R accept(FormVisitor visitor) { // void maken !!!
+    public R accept(FormVisitor visitor) { 
         return (R) visitor.visit(this);
     }
     
