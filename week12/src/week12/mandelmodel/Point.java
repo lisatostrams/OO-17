@@ -9,6 +9,7 @@ package week12.mandelmodel;
  * Klasse die een coordinaat van een pixel weergeeft.
  * @author Lisa Tostrams s4386167
  * @author Maurice Swanenberg - s4331095
+ * 
  */
 public class Point {
     double x, y;  // x en y coordinaat
