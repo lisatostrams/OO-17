@@ -23,7 +23,7 @@ import week12.mandelmodel.AreaFiller;
 import week12.mandelmodel.Point;
 
 /**
- * @author Lisa Tostrams
+ * @author Lisa Tostrams s4386167
  * @author Maurice Swanenberg - s4331095
  * @author Sjaak
  */
@@ -65,9 +65,13 @@ public class MandelFX extends Application {
         
         Button go = new Button("Go");                   // button to adjust the scale and the coordinates
         go.setOnAction(e -> {
+            try {
             xCoordinate = Double.parseDouble(x.getText());
             yCoordinate = -1*(Double.parseDouble(y.getText()));
             scale = Integer.parseInt(schaal.getText());
+            } catch (NumberFormatException ex) {
+                System.out.println("nah");
+            }
             areaFiller.fill2( canvas , xCoordinate, yCoordinate, scale);
         });
         
@@ -113,17 +117,19 @@ public class MandelFX extends Application {
                 }
             }
             else {
-                int oldWidth = (int) areaFiller.getPoint(499, 0).getX() - (int) areaFiller.getPoint(0, 0).getX();
-                int oldHeight = (int) areaFiller.getPoint(0, 0).getY() + (int) areaFiller.getPoint(0, 499).getY();
+                double oldWidth =  areaFiller.getPoint(499, 0).getX() -  areaFiller.getPoint(0, 0).getX();
+                double oldHeight =  areaFiller.getPoint(0, 0).getY() +  areaFiller.getPoint(0, 499).getY();
                 Point r = areaFiller.getPoint((int)e.getX(), (int)e.getY());
                 rx = r.getX();
                 ry = r.getY();
                 Point p = areaFiller.getPoint((int)px, (int)py);
                 px = p.getX();
                 py = p.getY();
-                int newWidth = (int)rx - (int)px;
-                int newHeight = (int)ry - (int)py;
-                int newScale = (int) (oldWidth/ newWidth) + (oldHeight/newHeight)/2;
+
+                double newWidth = rx - px;
+                double newHeight = ry - py;
+
+                double newScale = (oldWidth/ newWidth) + (oldHeight/newHeight)/2;
                 scale = (int) newScale * scale;
                 areaFiller.fill(canvas, px, rx, py, ry);
                 

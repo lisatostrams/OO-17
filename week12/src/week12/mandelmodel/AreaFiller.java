@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
 
 /**
  * A skeleton class illustrating the use of a pixelWriter
- * @author Lisa Tostrams
+ * @author Lisa Tostrams s4386167
  * @author Maurice Swanenberg - s4331095
  * @author Sjaak Smetsers
  * @version 06-05-2016
@@ -19,7 +19,8 @@ import javafx.scene.paint.Color;
 public class AreaFiller {
     private Color [] colors = {Color.DARKORANGE,Color.GREENYELLOW,Color.AQUA};
     private Point [][] coords = new Point [500][500];
-    
+    private int mod = 500; 
+    private ColorMap cm = new ColorMap(mod);
     /**
      * fills the canvas with a mandelbrot
      */
@@ -29,14 +30,12 @@ public class AreaFiller {
         double imageHeight = (double) canvas.getHeight();
         
         final PixelWriter pixelWriter = canvas.getGraphicsContext2D().getPixelWriter();
-     
+        
         for (int i = 0; i < imageWith; i++) {
             for (int j = 0; j < imageHeight; j++) {  
                 MandelBrot mand = new MandelBrot(startX + (endX - startX) * i/imageWith, startY + (endY - startY) * j/imageHeight);
                 coords[j][i] = new Point(startX + (endX - startX) * i/imageWith, startY + (endY - startY) * j/imageHeight);
-                if(mand.mandelGetal()%2==0)
-                    pixelWriter.setColor(i, j, Color.BLACK  );
-                else pixelWriter.setColor(i, j, Color.WHITE  );
+                pixelWriter.setColor(i, j, cm.getColor(mand.mandelGetal()%mod));
             }               
         }
     }
@@ -61,14 +60,14 @@ public class AreaFiller {
                 for (int j = 0; j < imageHeight; j++) {  
                     MandelBrot mand = new MandelBrot(startX + (endX - startX) * i/imageWith, startY + (endY - startY) * j/imageHeight);
                     coords[i][j] = new Point(startX + (endX - startX) * i/imageWith, startY + (endY - startY) * j/imageHeight);
-                    if(mand.mandelGetal()%2==0)
-                        pixelWriter.setColor(i, j, Color.BLACK);
-                    else pixelWriter.setColor(i, j, Color.WHITE);
+                    pixelWriter.setColor(i, j, cm.getColor(mand.mandelGetal()%mod));
                 }               
         }
     }    
     
     public Point getPoint(int x, int y) {
+        if(x > coords.length) x = coords.length-1;
+        if(y > coords.length) y = coords.length-1; 
         return coords[x][y];
     }
     
