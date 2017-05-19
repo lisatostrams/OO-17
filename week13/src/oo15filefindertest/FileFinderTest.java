@@ -16,10 +16,10 @@ public class FileFinderTest {
          FileFinderTest();
     }
 
-    public OO15FileFinderTest() {
+    public FileFinderTest() {
         try {
             String goal = "FileFinder.java";
-            String root = "/Users/pieterkoopman/Documents";
+            String root = "/Users/Lima/Desktop/OO-17/week13/src";
             FileFinder ff = new FileFinder(root);
 //            FileFinderSeq ff = new FileFinderSeq(root);
             ff.findFile(goal);

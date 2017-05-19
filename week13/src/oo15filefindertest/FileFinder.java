@@ -7,10 +7,10 @@ import java.io.IOException;
  *
  * @author pieterkoopman
  */
-public class FileFinderSeq {
+public class FileFinder {
     private final File rootDir;
     
-    public FileFinderSeq(String root) throws IOException {
+    public FileFinder(String root) throws IOException {
         rootDir = new File(root);
         if (!(rootDir.exists() && rootDir.isDirectory())) {
             throw new IOException(root + " is not a directory");
