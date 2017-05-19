@@ -1,5 +1,6 @@
 package oo15filefindertest;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -19,10 +20,10 @@ public class FileFinderTest {
     public FileFinderTest() {
         try {
             String goal = "FileFinder.java";
-            String root = "/Users/Lima/Desktop/OO-17/week13/src";
-            FileFinder ff = new FileFinder(root);
+            String root = "/Users/mauri/Desktop/OO-17/week13";
+            FileFinder ff = new FileFinder(root, goal);
 //            FileFinderSeq ff = new FileFinderSeq(root);
-            ff.findFile(goal);
+            ff.find(new File(root),goal);
 //            System.out.println(goal + " not found");
         } catch (IOException e) {
             //System.err.println( e );
@@ -30,19 +31,21 @@ public class FileFinderTest {
         }
     }
 
+    
     public static void FileFinderTest() {
         try {
             String goal = "FileFinder.java";
-            String root = "/Users/pieterkoopman/Documents";
-            FileFinder ff = new FileFinder(root);
+            String root = "/Users/mauri/Desktop/OO-17/week13";
+            FileFinder ff = new FileFinder(root, goal);
 //            FileFinderSeq ff = new FileFinderSeq(root);
-            ff.findFile(goal);
+            ff.find(new File(root),goal);
 //            System.out.println(goal + " not found");
         } catch (IOException e) {
             //System.err.println( e );
             e.printStackTrace();
         }
     }
+    
     /*
     public OO15FileFinderTest() {
         try {
