@@ -4,7 +4,8 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- *
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  * @author pieterkoopman
  */
 public class FileFinderTest {

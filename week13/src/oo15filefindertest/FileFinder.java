@@ -6,7 +6,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  * @author pieterkoopman
  */
 public class FileFinder implements Runnable{
