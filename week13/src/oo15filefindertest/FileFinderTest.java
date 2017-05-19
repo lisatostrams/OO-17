@@ -16,7 +16,7 @@ public class FileFinderTest {
          FileFinderTest();
     }
 
-    public FileFinderTest() {
+    public OO15FileFinderTest() {
         try {
             String goal = "FileFinder.java";
             String root = "/Users/pieterkoopman/Documents";
