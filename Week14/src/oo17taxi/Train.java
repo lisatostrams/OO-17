@@ -5,7 +5,7 @@ package oo17taxi;
  * 
  * @author pieterkoopman
  */
-public class Train {
+public class Train implements Runnable{
   private int nrOfPassengers;
   private final Station station;
   private int nrOfTrips = 0;
@@ -40,4 +40,9 @@ public class Train {
   public int getNrOfTrips() {
     return nrOfTrips;
   }
+
+    @Override
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

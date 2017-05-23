@@ -12,7 +12,7 @@ public class Simulation {
    */
   public static final int TRAIN_TRIPS       = 10;
   public static final int MIN_TRAVELLERS    = 60;
-  public static final int MAX_TRAVELLERS    = 90;
+  public static final int MAX_TRAVELLERS    = 80;
   public static final int CAPACITY_SMALL    = 4;
   public static final int CAPACITY_LARGE    = 7;
   public static final int TIME_SMALL        = 2;

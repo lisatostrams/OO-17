@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author pieterkoopman
  */
-public class Taxi {
+public class Taxi implements Runnable{
 
     private final int taxiId;
     private final int maxNrOfPassengers;
@@ -51,5 +51,10 @@ public class Taxi {
 
     public int getTotalNrOfPassengers() {
         return totalNrOfPassengers;
+    }
+
+    @Override
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

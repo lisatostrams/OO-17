@@ -9,7 +9,8 @@ package oo17taxi;
 public class OO17Taxi {
 
   public static void main(String[] args) {
-    Simulation sim = new Simulation();
+    //Simulation sim = new Simulation();
+    Simulator sim = new Simulator();
     while (! sim.ended()) {
       sim.step();
     }
