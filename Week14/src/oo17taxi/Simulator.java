@@ -44,10 +44,11 @@ public class Simulator{
                 new Taxi(i + 1, CAPACITY_LARGE, TIME_LARGE, station);
         }
         train = new Train(station, TRAIN_TRIPS, MIN_TRAVELLERS, MAX_TRAVELLERS);
+        new Thread(train).start();
         for(Taxi tax : taxis){
             new Thread(tax).start();
         }
-        new Thread(train).start();
+        
     }
 
     public boolean ended() {

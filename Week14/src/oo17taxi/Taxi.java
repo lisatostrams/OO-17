@@ -55,7 +55,7 @@ public class Taxi implements Runnable{
 
     @Override
     public void run() {
-        if (station.waitingPassengers() > 0) {
+        while (station.waitingPassengers() > 0) {
             takePassengers();
         }
     }
