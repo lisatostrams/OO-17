@@ -45,7 +45,7 @@ public class Simulation {
                     new Taxi(i + 1, CAPACITY_SMALL, TIME_SMALL, station) : 
                     new Taxi(i + 1, CAPACITY_LARGE, TIME_LARGE, station);
     }
-    train = new Train(station);
+    train = new Train(station,0,0,0);
   }
 
   /**
