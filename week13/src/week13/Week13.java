@@ -16,15 +16,25 @@ public class Week13 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int[] list = new int[10000000];
+        int[] list1 = new int[10000000];
+        int[] list2 = new int[10000000];
         for (int i=0; i<10000000; i++){
             int n = (int)(Math.random()*9999999 + 1);
-            list[i] = n;
+            list1[i] = n;
+            list2[i] = n;
 
             //System.out.println(list[i] + " ");
         }
-        
-        MergeSort sort = new MergeSort(list);
+        System.out.println("Sort list without multithreading first..");
+        long firstTime = System.currentTimeMillis();
+        MergeSort srt = new MergeSort(list1);
+        srt.sort(list1); 
+        long secondTime = System.currentTimeMillis();
+        long runTime = secondTime - firstTime;
+        System.out.println("List sorted in: " + runTime + "ms"); 
+        System.out.println("" + Runtime.getRuntime().availableProcessors() + " available cores for multithreading");
+        firstTime = System.currentTimeMillis();
+        MergeSort sort = new MergeSort(list2);
         Thread t = new Thread(sort);
         t.start();
         try {
@@ -32,15 +42,27 @@ public class Week13 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }   
-        System.out.println(MergeSort.isSorted(list));
-        if(sort.isSorted(list)) {
-            for(int i = 0; i < 1000; i++) {
-                System.out.println(list[i]);
-            }
-            for(int i = 9999900; i < 10000000; i++) {
-                System.out.println(list[i]); 
-            }
+        if(sort.isSorted(list2)) {
+            secondTime = System.currentTimeMillis();
+            runTime = secondTime - firstTime;
+            System.out.println("List sorted in: " + runTime + " ms"); 
+            for(int i = 0; i < 5; i++) 
+                System.out.println(list2[i]);
+            System.out.println(":"); 
+            for(int i = 9999995; i < 10000000; i++) 
+                System.out.println(list2[i]); 
+            
         }
     }
-    
+    /**
+     * Sort list without multithreading first..
+     * List sorted in: 2309ms
+     * 4 available cores for multithreading
+     * List sorted in: 1210ms
+     * 
+     * 
+     * 
+     * 
+     * 
+     */
 }
