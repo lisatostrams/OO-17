@@ -6,11 +6,17 @@ package oo17taxi;
  * @author pieterkoopman
  */
 public class Train implements Runnable{
+  private int TRAIN_TRIPS;
+  private int MIN_TRAVELLERS;
+  private int MAX_TRAVELLERS;
   private int nrOfPassengers;
   private final Station station;
   private int nrOfTrips = 0;
 
-  public Train(Station station) {
+  public Train(Station station, int train_trips, int min_travellers, int max_travellers) {
+    this.TRAIN_TRIPS = train_trips;
+    this.MIN_TRAVELLERS = min_travellers;
+    this.MAX_TRAVELLERS = max_travellers;
     this.station = station;
     this.nrOfPassengers = 0;
   }
@@ -43,6 +49,10 @@ public class Train implements Runnable{
 
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(station.waitingPassengers() == 0){
+            if (getNrOfTrips() < TRAIN_TRIPS) {
+            loadPassengers(Util.getRandomNumber(MIN_TRAVELLERS, MAX_TRAVELLERS));
+            unloadPassengers();
+        }
     }
 }

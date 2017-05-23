@@ -39,11 +39,16 @@ public class Simulator{
     taxis   = new Taxi[NR_OF_TAXIS];
     for (int i = 0; i < NR_OF_TAXIS; i++) {
       taxis[i] = i < NR_OF_SMALL_TAXIS ?
-                    //new Taxi(i + 1, CAPACITY_SMALL, TIME_SMALL, station) :
-                    Thread small = new Thread(new Taxi(i + 1, CAPACITY_SMALL, TIME_SMALL, station));
+                    new Taxi(i + 1, CAPACITY_SMALL, TIME_SMALL, station):
                     new Taxi(i + 1, CAPACITY_LARGE, TIME_LARGE, station);
     }
-    train = new Train(station);
+    train = new Train(station, TRAIN_TRIPS, MIN_TRAVELLERS, MAX_TRAVELLERS);
+    for(Taxi tax : taxis){
+        new Thread(tax).start();
+    }
+    new Thread(train).start();
   }
+  
+  
   
 }
