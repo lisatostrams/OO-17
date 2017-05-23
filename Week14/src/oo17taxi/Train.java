@@ -1,5 +1,8 @@
 package oo17taxi;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * Trains bring a number of passengers to a station in the Taxi simulation
  * 
@@ -26,7 +29,8 @@ public class Train implements Runnable{
      *
      * @param number the number of passengers of this train
      */
-    public void loadPassengers(int number) {
+    public synchronized void loadPassengers(int number) throws InterruptedException {
+        //Thread.sleep(100);
         nrOfPassengers = number;
     }
 
@@ -34,9 +38,10 @@ public class Train implements Runnable{
     * empties this train and augment the number of Passengers at the station with
     * this nrOfPassenegers
     */
-    public void unloadPassengers() {
+    public synchronized void unloadPassengers() throws InterruptedException {
         nrOfTrips += 1;
         station.enterStation(nrOfPassengers);
+        Thread.sleep(100);
     }
 
     public void closeStation() {
@@ -49,11 +54,19 @@ public class Train implements Runnable{
 
     @Override
     public void run() {
-        while(nrOfTrips < TRAIN_TRIPS)
-        if(station.waitingPassengers() == 0){
-                loadPassengers(Util.getRandomNumber(MIN_TRAVELLERS, MAX_TRAVELLERS));
-                unloadPassengers();
+        while(nrOfTrips < TRAIN_TRIPS){
+            if(station.waitingPassengers() == 0){
+                try {
+                    loadPassengers(Util.getRandomNumber(MIN_TRAVELLERS, MAX_TRAVELLERS));
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Train.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                try {
+                    unloadPassengers();
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Train.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        
+        }
     }
 }

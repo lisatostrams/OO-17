@@ -1,6 +1,8 @@
 package oo17taxi;
 
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author pieterkoopman
@@ -28,7 +30,7 @@ public class Taxi implements Runnable{
      * If actual number op passengers is less then that number is taken
      * When there are no passengers the taxi just waits a little
      */
-    public void takePassengers() {
+    public synchronized void takePassengers() {
         int passengersWaiting = station.waitingPassengers();        
         if ( passengersWaiting > 0 ) {
             int nrOfPassengers = Math.min(passengersWaiting, maxNrOfPassengers);
@@ -55,6 +57,12 @@ public class Taxi implements Runnable{
 
     @Override
     public void run() {
+        if(station.waitingPassengers() == 0)
+            try {
+                Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Taxi.class.getName()).log(Level.SEVERE, null, ex);
+        }
         while (station.waitingPassengers() > 0) {
             takePassengers();
         }
