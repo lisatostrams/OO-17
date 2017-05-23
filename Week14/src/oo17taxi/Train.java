@@ -49,11 +49,11 @@ public class Train implements Runnable{
 
     @Override
     public void run() {
+        while(nrOfTrips < TRAIN_TRIPS)
         if(station.waitingPassengers() == 0){
-            if (getNrOfTrips() < TRAIN_TRIPS) {
                 loadPassengers(Util.getRandomNumber(MIN_TRAVELLERS, MAX_TRAVELLERS));
                 unloadPassengers();
             }
-        }
+        
     }
 }
