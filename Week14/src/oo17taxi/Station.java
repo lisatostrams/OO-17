@@ -10,7 +10,7 @@ public class Station {
     private int totalNrOfPassengers = 0;
     private boolean isClosed = false;
     
-    public void enterStation(int nrOfPassengers) {
+    public synchronized void enterStation(int nrOfPassengers) {
         nrOfPassengersAtStation += nrOfPassengers;
         totalNrOfPassengers += nrOfPassengers;
         System.out.println(nrOfPassengers + " passengers arrived at station");
@@ -20,11 +20,11 @@ public class Station {
      *
      * @param nrOfPassengers
      */
-    public void leaveStation(int nrOfPassengers) {
+    public synchronized void leaveStation(int nrOfPassengers) {
         nrOfPassengersAtStation -= nrOfPassengers;
     }
 
-    public int waitingPassengers() {
+    public synchronized int waitingPassengers() {
         return nrOfPassengersAtStation;
     }
     
@@ -36,7 +36,7 @@ public class Station {
         return isClosed;     
     }
 
-    public int getTotalNrOfPassengers() {
+    public synchronized int getTotalNrOfPassengers() {
         return totalNrOfPassengers;
     }
 }
