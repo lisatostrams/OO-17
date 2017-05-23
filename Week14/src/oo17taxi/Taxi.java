@@ -13,6 +13,7 @@ public class Taxi implements Runnable{
     private final int maxNrOfPassengers;
     private final int transportationTime;
     private final Station station;
+    //Simulator sim;
     
     private int totalNrOfPassengers = 0;
     private int nrOfRides = 0;
@@ -57,6 +58,7 @@ public class Taxi implements Runnable{
 
     @Override
     public void run() {
+        //Synchronized(sim);
         if(station.waitingPassengers() == 0)
             try {
                 Thread.sleep(100);

@@ -15,6 +15,7 @@ public class Train implements Runnable{
     private int nrOfPassengers;
     private final Station station;
     private int nrOfTrips = 0;
+    //Simulator sim;
 
     public Train(Station station, int train_trips, int min_travellers, int max_travellers) {
         this.TRAIN_TRIPS = train_trips;
@@ -30,7 +31,7 @@ public class Train implements Runnable{
      * @param number the number of passengers of this train
      */
     public synchronized void loadPassengers(int number) throws InterruptedException {
-        //Thread.sleep(100);
+        //Thread.sleep(50);
         nrOfPassengers = number;
     }
 
@@ -56,6 +57,7 @@ public class Train implements Runnable{
     public void run() {
         while(nrOfTrips < TRAIN_TRIPS){
             if(station.waitingPassengers() == 0){
+                //Synchronized(sim);
                 try {
                     loadPassengers(Util.getRandomNumber(MIN_TRAVELLERS, MAX_TRAVELLERS));
                 } catch (InterruptedException ex) {

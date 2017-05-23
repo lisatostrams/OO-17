@@ -33,6 +33,7 @@ public class Simulator{
     private final Taxi[]  taxis;
     private final Train   train;
     private final Station station;
+    private Thread[] threads;
     private boolean hasEnded = false;
 
     public Simulator(){
