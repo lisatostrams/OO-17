@@ -51,7 +51,7 @@ public class Simulator{
     }
 
     public boolean ended() {
-        return hasEnded;
+        return (train.getNrOfTrips() == TRAIN_TRIPS && station.waitingPassengers() == 0);
     }
 
     public void showStatistics() {
