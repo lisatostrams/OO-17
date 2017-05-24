@@ -11,6 +11,10 @@ package oo17taxi;
  */
 
 import java.lang.Thread;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Simulator{
     
@@ -45,9 +49,18 @@ public class Simulator{
                 new Taxi(i + 1, CAPACITY_LARGE, TIME_LARGE, station);
         }
         train = new Train(station, TRAIN_TRIPS, MIN_TRAVELLERS, MAX_TRAVELLERS);
-        new Thread(train).start();
+        ExecutorService executor = Executors.newCachedThreadPool();
+        executor.execute(train);
         for(Taxi tax : taxis){
-            new Thread(tax).start();
+            executor.execute(tax); 
+        }
+        executor.shutdown();
+        try {
+            boolean ended = executor.awaitTermination(2, TimeUnit.MINUTES);
+            if(ended) showStatistics();
+            else System.out.println("Timed out");
+        } catch (InterruptedException ex) {
+            System.out.println("Interrupted");
         }
         
     }
