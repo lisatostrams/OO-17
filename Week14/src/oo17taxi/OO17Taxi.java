@@ -5,6 +5,8 @@ package oo17taxi;
  * main Class: create a SImulation and execute it.
  * 
  * @author pieterkoopman
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public class OO17Taxi {
 
@@ -16,6 +18,6 @@ public class OO17Taxi {
       sim.step();
     }
     * */
-    sim.showStatistics();
+    //sim.showStatistics();
   }
 }

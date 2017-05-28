@@ -5,7 +5,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
  *
- * @author pieterkoopman
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public class Taxi implements Runnable{
 
@@ -38,6 +39,12 @@ public class Taxi implements Runnable{
             station.leaveStation(nrOfPassengers);
             totalNrOfPassengers += nrOfPassengers;
             nrOfRides++;
+            try { //transportation time
+                Thread.sleep(100);
+                
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Taxi.class.getName()).log(Level.SEVERE, null, ex);
+            }
             System.out.println("Taxi " + taxiId + " takes " + nrOfPassengers + " passengers");
         } else {  
             System.out.println("There are no passengers for taxi " + taxiId);  
@@ -48,7 +55,7 @@ public class Taxi implements Runnable{
      * @return total time
      */
     public int calcTotalTime() {
-        return transportationTime * nrOfRides;
+        return transportationTime * nrOfRides ;
     }
     
 
@@ -62,11 +69,14 @@ public class Taxi implements Runnable{
         if(station.waitingPassengers() == 0)
             try {
                 Thread.sleep(100);
+                
         } catch (InterruptedException ex) {
             Logger.getLogger(Taxi.class.getName()).log(Level.SEVERE, null, ex);
         }
         while (station.waitingPassengers() > 0) {
+            
             takePassengers();
+            
         }
     }
 }

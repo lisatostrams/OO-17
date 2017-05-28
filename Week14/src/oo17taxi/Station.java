@@ -3,6 +3,8 @@ package oo17taxi;
 /**
  * Class that holds the number of persons arriving by train at the station and
  * waiting for a taxi
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public class Station {
 

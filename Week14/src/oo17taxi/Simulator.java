@@ -7,7 +7,8 @@ package oo17taxi;
 
 /**
  *
- * @author mauri
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 
 import java.lang.Thread;

@@ -5,8 +5,8 @@ import java.util.logging.Logger;
 
 /**
  * Trains bring a number of passengers to a station in the Taxi simulation
- * 
- * @author pieterkoopman
+ * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public class Train implements Runnable{
     private int TRAIN_TRIPS;
