@@ -19,6 +19,13 @@ public class Taxi implements Runnable{
     private int totalNrOfPassengers = 0;
     private int nrOfRides = 0;
   
+    /**
+     * Constructor of Taxi
+     * @param nr
+     * @param maxNumberOfPassengers
+     * @param transportationTime
+     * @param station 
+     */
     public Taxi(int nr, int maxNumberOfPassengers, int transportationTime, Station station) {
         this.taxiId = nr;
         this.maxNrOfPassengers = maxNumberOfPassengers;
@@ -58,7 +65,10 @@ public class Taxi implements Runnable{
         return transportationTime * nrOfRides ;
     }
     
-
+    /**
+     * 
+     * @return the total number of passangers
+     */
     public int getTotalNrOfPassengers() {
         return totalNrOfPassengers;
     }
@@ -68,7 +78,7 @@ public class Taxi implements Runnable{
         //Synchronized(sim);
         if(station.waitingPassengers() == 0)
             try {
-                Thread.sleep(100);
+                Thread.sleep(10);
                 
         } catch (InterruptedException ex) {
             Logger.getLogger(Taxi.class.getName()).log(Level.SEVERE, null, ex);

@@ -41,6 +41,9 @@ public class Simulator{
     private Thread[] threads;
     private boolean hasEnded = false;
 
+    /**
+     * Constructor of Siimulator which makes 4 new Taxi objects and 1 train object.
+     */
     public Simulator(){
         station = new Station();
         taxis   = new Taxi[NR_OF_TAXIS];
@@ -65,11 +68,18 @@ public class Simulator{
         }
         
     }
-
+    
+    /**
+     * 
+     * @return if the people who work at the station can close it.
+     */
     public boolean ended() {
         return (train.getNrOfTrips() == TRAIN_TRIPS && station.waitingPassengers() == 0);
     }
 
+    /**
+     * shows statistics
+     */
     public void showStatistics() {
         System.out.println("All persons have been transported");
         System.out.println("Total transport time in this simulation:" + calcTotalTime(taxis));

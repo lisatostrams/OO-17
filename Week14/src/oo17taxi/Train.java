@@ -17,6 +17,13 @@ public class Train implements Runnable{
     private int nrOfTrips = 0;
     //Simulator sim;
 
+    /**
+     * Constructor of Train
+     * @param station
+     * @param train_trips
+     * @param min_travellers
+     * @param max_travellers 
+     */
     public Train(Station station, int train_trips, int min_travellers, int max_travellers) {
         this.TRAIN_TRIPS = train_trips;
         this.MIN_TRAVELLERS = min_travellers;
@@ -31,7 +38,7 @@ public class Train implements Runnable{
      * @param number the number of passengers of this train
      */
     public synchronized void loadPassengers(int number) throws InterruptedException {
-        //Thread.sleep(50);
+        //Thread.sleep(125);
         nrOfPassengers = number;
     }
 
@@ -45,10 +52,17 @@ public class Train implements Runnable{
         Thread.sleep(100);
     }
 
+    /**
+     * Closes the station.
+     */
     public void closeStation() {
         station.close();
     }
 
+    /**
+     * 
+     * @return number of trips.
+     */
     public int getNrOfTrips() {
         return nrOfTrips;
     }
