@@ -41,4 +41,8 @@ public class Kassa {
     public int aantalOpBand () {
         return band.getAantal();
     }
+    
+    public int getBANDGROOTTE(){
+        return BANDGROOTTE;
+    }
 }

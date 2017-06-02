@@ -29,15 +29,19 @@ public class Klant implements Runnable {
         winkel.getKassa(klantNummer);
         
         //wacht tot hij aan de beurt is
-        while(winkel.getKassa(klantNummer).aantalOpBand()>0){
+        if(winkel.getKassa(klantNummer).aantalOpBand()==winkel.getKassa(klantNummer).getBANDGROOTTE()){
             try {
                 wait();
             } catch (InterruptedException ex) {
                 Logger.getLogger(Klant.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        else{
+            // alle artikelen op de band van de gekozen kassa legt
+            
+        }
         
-        // alle artikelen op de band van de gekozen kassa legt
+        
         
         // de gescande artikelen uit de bak haalt
         
