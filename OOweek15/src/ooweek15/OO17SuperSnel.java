@@ -6,6 +6,8 @@ import java.util.concurrent.Executors;
 /**
  *
  * @author Sjaak en Pieter
+   * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  */
 public class OO17SuperSnel {
 

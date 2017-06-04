@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 
 /**
- *
+  * @author Maurice Swanenberg s4331095
+ * @author Lisa Tostrams s4386167
  * @author Sjaak en Pieter
  */
 public class Winkel {
@@ -17,7 +18,7 @@ public class Winkel {
   public Winkel(ExecutorService executor) {
     kassas = new Kassa[AANTAL_KASSAS];
     for (int i = 0; i < AANTAL_KASSAS; i += 1) {
-      kassas[i] = new Kassa();
+      kassas[i] = new Kassa(i);
       executor.execute(new Kassiere(kassas[i]));
     }
   }
